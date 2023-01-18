@@ -2,9 +2,9 @@ name: "godot-ci export"
 on: push
 
 env:
-  GODOT_VERSION: 3.3.4
-  EXPORT_NAME: test-project
-  PROJECT_PATH: test-project
+  GODOT_VERSION: 3.5.1
+  EXPORT_NAME: godot-wild-jam-game-53
+  PROJECT_PATH: .
   
 jobs:
   export-windows:
