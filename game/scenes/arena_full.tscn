@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/arena_right.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/arena_left.tscn" type="PackedScene" id=2]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/weapon.tscn" type="PackedScene" id=4]
 
 [node name="arena_full" type="Node2D"]
 
@@ -42,6 +43,9 @@ move_left_input = "ui_left"
 move_right_input = "ui_right"
 move_up_input = "ui_up"
 move_down_input = "ui_down"
+
+[node name="weapon" parent="." instance=ExtResource( 4 )]
+position = Vector2( 593, 556 )
 
 [editable path="player_left"]
 [editable path="player_right"]

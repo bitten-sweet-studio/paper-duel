@@ -9,12 +9,17 @@ export var move_right_input : String
 export var move_up_input : String
 export var move_down_input : String
 
-func _physics_process(delta):
+onready var arena_full = get_tree().root.get_node("arena_full")
 
+
+func _ready():
+	print(arena_full)
+
+func _physics_process(delta):
 	get_input()
 	velocity = move_and_slide(velocity * speed)
+	look_at(get_global_mouse_position())
 
-			
 func get_input():
 	velocity = Vector2()
 	if Input.is_action_pressed(move_right_input):
@@ -26,4 +31,15 @@ func get_input():
 	if Input.is_action_pressed(move_up_input):
 		velocity.y = -1
 		
+
+func _on_Area2D_area_entered(area):
+	if has_node("weapon"):
+		return
+	call_deferred("reparent", area)
 	
+func reparent(node):
+	node.get_child(0).disabled = true
+	arena_full.remove_child(node)
+	add_child(node)
+	node.global_position = global_position
+
