@@ -4,7 +4,7 @@ on: push
 env:
   GODOT_VERSION: 3.5.1
   EXPORT_NAME: godot-wild-jam-game-53
-  PROJECT_PATH: .
+  PROJECT_PATH: game
   
 jobs:
   export-windows:
