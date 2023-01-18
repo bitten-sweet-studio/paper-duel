@@ -102,7 +102,7 @@ jobs:
       - name: Deploy to GitHub Pages 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v4
         with:
-          folder: build
+          folder: build/web
 
   export-mac:
     name: Mac Export
