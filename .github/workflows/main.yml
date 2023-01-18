@@ -1,7 +1,17 @@
 name: "godot-ci export"
-on: push
-  branches:
-    - main
+on: 
+  push:
+    branches:
+      - main
+
+    paths:
+      - "**.gd"
+      - "**.tscn"
+      - "**.import"
+      - "**.tres"
+      - "**.ttf"
+      - ".github/workflows/**.yml"
+      - "**.cfg"
 
 env:
   GODOT_VERSION: 3.5.1
