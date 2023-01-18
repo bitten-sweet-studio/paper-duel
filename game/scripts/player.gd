@@ -9,6 +9,9 @@ export var move_right_input : String
 export var move_up_input : String
 export var move_down_input : String
 
+var current_hp = 3
+
+
 onready var arena_full = get_tree().root.get_node("arena_full")
 
 
@@ -33,6 +36,8 @@ func get_input():
 		
 
 func _on_Area2D_area_entered(area):
+	if area.name != "weapon":
+		return
 	if has_node("weapon"):
 		return
 	call_deferred("reparent", area)
@@ -43,3 +48,7 @@ func reparent(node):
 	add_child(node)
 	node.global_position = global_position
 
+func take_damage(damage):
+	if current_hp <= 0:
+		queue_free()
+	current_hp -= damage

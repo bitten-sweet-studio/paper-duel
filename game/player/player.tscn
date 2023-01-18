@@ -4,7 +4,7 @@
 [ext_resource path="res://util/textures/icon.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 137.033
+radius = 43.2802
 
 [node name="player" type="Node2D"]
 scale = Vector2( 1.03078, 1 )
@@ -17,10 +17,13 @@ position = Vector2( 2, -0.999996 )
 scale = Vector2( 1.17674, 1.1016 )
 texture = ExtResource( 2 )
 
-[node name="Area2D" type="Area2D" parent="rb"]
+[node name="player_area2d" type="Area2D" parent="rb"]
+scale = Vector2( 1.01112, 1 )
+collision_layer = 2
+collision_mask = 12
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="rb/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rb/player_area2d"]
 position = Vector2( 0, 4 )
 shape = SubResource( 1 )
 
-[connection signal="area_entered" from="rb/Area2D" to="rb" method="_on_Area2D_area_entered"]
+[connection signal="area_entered" from="rb/player_area2d" to="rb" method="_on_Area2D_area_entered"]
