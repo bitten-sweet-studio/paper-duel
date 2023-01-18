@@ -1,11 +1,16 @@
 name: "godot-ci export"
 on: push
+  branches:
+    - main
 
 env:
   GODOT_VERSION: 3.5.1
   EXPORT_NAME: godot-wild-jam-game-53
   PROJECT_PATH: game
   
+permissions:
+  contents: write
+
 jobs:
   export-windows:
     name: Windows Export
@@ -87,8 +92,7 @@ jobs:
       - name: Deploy to GitHub Pages 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v4
         with:
-          branch: gh-pages # The branch the action should deploy to.
-          folder: build/web # The folder the action should deploy.
+          folder: build
 
   export-mac:
     name: Mac Export
