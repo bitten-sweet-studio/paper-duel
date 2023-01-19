@@ -1,8 +1,0 @@
-[gd_scene format=2]
-
-[node name="arena_right" type="Node2D"]
-
-[node name="background" type="Polygon2D" parent="."]
-position = Vector2( 960, 0 )
-color = Color( 0.0235294, 0.839216, 0.627451, 1 )
-polygon = PoolVector2Array( 0, 1080, 960, 1080, 960, 0, 0, 0 )
