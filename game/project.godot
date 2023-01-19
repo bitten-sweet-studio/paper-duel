@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Resource",
+"class": "MovementInputDefinition",
+"language": "GDScript",
+"path": "res://scripts/movement_input_definition.gd"
+}, {
 "base": "Node2D",
 "class": "Player",
 "language": "GDScript",
@@ -20,6 +25,7 @@ _global_script_classes=[ {
 "path": "res://scripts/player_movement.gd"
 } ]
 _global_script_class_icons={
+"MovementInputDefinition": "",
 "Player": "",
 "PlayerMovement": ""
 }
