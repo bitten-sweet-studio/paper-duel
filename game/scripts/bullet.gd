@@ -10,7 +10,7 @@ func _ready():
 	pass
 	
 func _physics_process(delta):
-	self.scale = self.scale * 0.995
+	self.scale = self.scale * 0.997
 	if movement_direction:
 		move_bullet(delta)
 

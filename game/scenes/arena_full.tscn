@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/arena_right.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/arena_left.tscn" type="PackedScene" id=2]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/weapon.tscn" type="PackedScene" id=4]
+[ext_resource path="res://cards/card_hand.tscn" type="PackedScene" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 50, 541 )
 
 [node name="arena_full" type="Node2D"]
 
@@ -11,17 +14,12 @@
 
 [node name="arena_right" parent="." instance=ExtResource( 1 )]
 
-[node name="central_wall" type="Polygon2D" parent="."]
-position = Vector2( 910, 0 )
-color = Color( 1, 0.819608, 0.4, 1 )
-polygon = PoolVector2Array( 0, 1080, 100, 1080, 100, 0, 0, 0 )
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 960, 540 )
 current = true
 
 [node name="player_left" parent="." instance=ExtResource( 3 )]
-position = Vector2( 233, 569 )
+position = Vector2( 441, 315 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -31,9 +29,10 @@ move_left_input = "wasd_left"
 move_right_input = "wasd_right"
 move_up_input = "wasd_up"
 move_down_input = "wasd_down"
+suffix = "left"
 
 [node name="player_right" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1741, 478 )
+position = Vector2( 1489, 270 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -43,9 +42,101 @@ move_left_input = "ui_left"
 move_right_input = "ui_right"
 move_up_input = "ui_up"
 move_down_input = "ui_down"
+suffix = "right"
 
-[node name="weapon" parent="." instance=ExtResource( 4 )]
-position = Vector2( 593, 556 )
+[node name="walls" type="Node" parent="."]
+
+[node name="central_wall" type="Polygon2D" parent="walls"]
+position = Vector2( 910, 0 )
+color = Color( 1, 0.819608, 0.4, 1 )
+polygon = PoolVector2Array( 0, 1080, 100, 1080, 100, 0, 0, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="walls/central_wall"]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/central_wall/StaticBody2D"]
+position = Vector2( 50, 539 )
+shape = SubResource( 1 )
+
+[node name="left_wall" type="Polygon2D" parent="walls"]
+position = Vector2( -100, 1 )
+color = Color( 1, 0.819608, 0.4, 1 )
+polygon = PoolVector2Array( 0, 1080, 100, 1080, 100, 678.101, 100, 0, 0, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="walls/left_wall"]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/left_wall/StaticBody2D"]
+position = Vector2( 50, 539 )
+shape = SubResource( 1 )
+
+[node name="right_wall" type="Polygon2D" parent="walls"]
+position = Vector2( 1920, 2 )
+color = Color( 1, 0.819608, 0.4, 1 )
+polygon = PoolVector2Array( 0, 1080, 100, 1080, 100, 678.101, 100, 0, 0, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="walls/right_wall"]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/right_wall/StaticBody2D"]
+position = Vector2( 50, 539 )
+shape = SubResource( 1 )
+
+[node name="up_wall" type="Polygon2D" parent="walls"]
+position = Vector2( 1976.27, -100.001 )
+rotation = 1.57079
+scale = Vector2( 1, 1.91716 )
+color = Color( 1, 0.819608, 0.4, 1 )
+polygon = PoolVector2Array( 0, 1080, 100, 1080, 100, 0, 0, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="walls/up_wall"]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/up_wall/StaticBody2D"]
+position = Vector2( 50, 539 )
+shape = SubResource( 1 )
+
+[node name="down_wall" type="Polygon2D" parent="walls"]
+position = Vector2( 1998, 1078 )
+rotation = 1.57079
+scale = Vector2( 1, 1.91716 )
+color = Color( 1, 0.819608, 0.4, 1 )
+polygon = PoolVector2Array( 0, 1080, 100, 1080, 100, 0, 0, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="walls/down_wall"]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/down_wall/StaticBody2D"]
+position = Vector2( 50, 539 )
+shape = SubResource( 1 )
+
+[node name="Node2D" type="Node2D" parent="walls/down_wall/StaticBody2D"]
+
+[node name="card_hand_left" parent="." instance=ExtResource( 4 )]
+position = Vector2( 446, 965 )
+
+[node name="card_hand_right" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1465, 959 )
 
 [editable path="player_left"]
 [editable path="player_right"]

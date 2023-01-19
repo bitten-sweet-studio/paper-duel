@@ -12,10 +12,7 @@ func _on_Timer_timeout():
 
 func shoot_bullet():
 	var current_bullet = bullet_scene.instance()
-	var direction = Vector2.RIGHT.rotated(deg2rad(rotation_degrees))
+	var direction = Vector2.RIGHT.rotated(global_rotation)
 	current_bullet.set_direction(direction)
-	if get_parent() == arena_full:
-		add_child(current_bullet) 
-	else:
-		get_parent().get_parent().add_child(current_bullet) 
+	arena_full.add_child(current_bullet) 
 	current_bullet.global_position = weapon_tip.global_position 

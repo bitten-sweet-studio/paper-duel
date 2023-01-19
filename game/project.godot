@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node",
+"class": "CardHand",
+"language": "GDScript",
+"path": "res://scripts/card.gd"
+} ]
+_global_script_class_icons={
+"CardHand": ""
+}
+
 [application]
 
 config/name="godot-wild-jam-game-53"
