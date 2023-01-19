@@ -11,6 +11,7 @@ export var suffix : String
 export var is_in_preparation : bool = true
 
 onready var card_left_input : String = move_left_input
+onready var card_select_input : String = move_down_input
 onready var card_right_input : String = move_right_input
 onready var arena_full = get_tree().root.get_node("arena_full")
 
@@ -45,9 +46,17 @@ func process_card_input():
         card_hand.go_left()
     elif Input.is_action_just_pressed(card_right_input):
         card_hand.go_right()
+    elif Input.is_action_just_pressed(card_select_input):
+        var weapon_instance : Weapon = card_hand.select_card()
+        setup_weapon(weapon_instance)
+        is_in_preparation = false
 
-func _on_Area2D_area_entered(area):
-    call_deferred("reparent", area)
+#func _on_Area2D_area_entered(area):
+    #call_deferred("reparent", area)
+
+func setup_weapon(weapon : Weapon):
+    add_child(weapon)
+    weapon.global_position = global_position
     
 func reparent(node):
     node.get_child(0).disabled = true

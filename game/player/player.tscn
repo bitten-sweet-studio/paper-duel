@@ -16,6 +16,13 @@ scale = Vector2( 3, 3 )
 collision_layer = 2
 collision_mask = 16
 script = ExtResource( 1 )
+speed = null
+move_left_input = null
+move_right_input = null
+move_up_input = null
+move_down_input = null
+suffix = null
+is_in_preparation = null
 
 [node name="Icon" type="Sprite" parent="rb"]
 position = Vector2( 2, -0.999996 )

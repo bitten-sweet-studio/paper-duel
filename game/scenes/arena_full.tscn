@@ -25,11 +25,13 @@ __meta__ = {
 }
 
 [node name="rb" parent="player_left" index="0"]
+speed = null
 move_left_input = "wasd_left"
 move_right_input = "wasd_right"
 move_up_input = "wasd_up"
 move_down_input = "wasd_down"
 suffix = "left"
+is_in_preparation = null
 
 [node name="player_right" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1489, 270 )
@@ -38,11 +40,13 @@ __meta__ = {
 }
 
 [node name="rb" parent="player_right" index="0"]
+speed = null
 move_left_input = "ui_left"
 move_right_input = "ui_right"
 move_up_input = "ui_up"
 move_down_input = "ui_down"
 suffix = "right"
+is_in_preparation = null
 
 [node name="walls" type="Node" parent="."]
 

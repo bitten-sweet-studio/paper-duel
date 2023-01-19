@@ -1,4 +1,5 @@
 extends Node2D
+class_name Weapon
 
 var bullet_scene = preload("res://scenes/bullet.tscn")
 onready var arena_full = get_tree().root.get_node("arena_full")

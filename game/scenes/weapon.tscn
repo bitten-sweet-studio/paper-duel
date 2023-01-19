@@ -15,6 +15,7 @@ script = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource( 1 )
+disabled = true
 
 [node name="Weapon" type="Sprite" parent="."]
 position = Vector2( 10, 4 )
