@@ -61,3 +61,22 @@ _movement_input_definition = ExtResource( 8 )
 
 [node name="player2" parent="players" instance=ExtResource( 5 )]
 _movement_input_definition = ExtResource( 7 )
+
+[node name="card_timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="weapon_attachment_timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="time_label" type="Label" parent="."]
+margin_left = 794.0
+margin_top = 24.0
+margin_right = 1670.0
+margin_bottom = 486.0
+rect_scale = Vector2( 8.99015, 12.0935 )
+text = "00:30"
+
+[connection signal="timeout" from="card_timer" to="." method="_on_card_timer_timeout"]
+[connection signal="timeout" from="weapon_attachment_timer" to="." method="_on_weapon_attachment_timer_timeout"]
