@@ -94,7 +94,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/util/string_res.gd"
 }, {
-"base": "Node",
+"base": "Node2D",
 "class": "Weapon",
 "language": "GDScript",
 "path": "res://scripts/weapon_system/weapon.gd"
@@ -104,10 +104,15 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/weapon_system/weapon_definition.gd"
 }, {
+"base": "Node2D",
+"class": "WeaponSlot",
+"language": "GDScript",
+"path": "res://scripts/weapon_system/weapon_slot.gd"
+}, {
 "base": "Node",
 "class": "WeaponSlotManager",
 "language": "GDScript",
-"path": "res://scripts/player/player_weapon_slot_manager.gd"
+"path": "res://scripts/weapon_system/weapon_slot_manager.gd"
 }, {
 "base": "Node",
 "class": "WeaponSystem",
@@ -144,6 +149,7 @@ _global_script_class_icons={
 "StringRes": "",
 "Weapon": "",
 "WeaponDefinition": "",
+"WeaponSlot": "",
 "WeaponSlotManager": "",
 "WeaponSystem": "",
 "WeaponTrait": "",

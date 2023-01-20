@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://util/textures/weapon.png" type="Texture" id=1]
+
+[node name="ak_47" type="Node2D"]
+
+[node name="Weapon" type="Sprite" parent="."]
+position = Vector2( 93, 4 )
+scale = Vector2( 0.935, 0.965 )
+texture = ExtResource( 1 )

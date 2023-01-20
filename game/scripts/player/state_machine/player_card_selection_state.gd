@@ -31,13 +31,15 @@ func handle_input():
 
 
 func handle_interact_input():
-	var weapon_instance: Weapon = _player.card_hand.select_current_card()
-	_player.weapon_slot_manager.attach_weapon(weapon_instance)
+	var weapon: Weapon = _player.card_hand.select_current_card()
+	_player.card_hand.current_card().queue_free()
+	_player.weapon_slot_manager.start_weapon_attachment(weapon)
+	_player.weapon_slot_manager.attach_to_first_valid_slot()
+
 	_state_machine.change_state(PlayerStateMachine.State.WEAPON_ATTACHMENT)
 
 
 func exit():
-	_player.movement.is_movement_enabled = true
 	pass
 
 #func try_buy_card():
