@@ -9,7 +9,7 @@ var velocity
 var _player: Player
 
 
-func setup(player: Player):
+func setup(player):
 	_player = player
 	_input_definition = _player.input_definition
 

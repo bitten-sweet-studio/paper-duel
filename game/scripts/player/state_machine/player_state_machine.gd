@@ -8,7 +8,7 @@ export var _card_selection_state_path: NodePath = "card_selection_state"
 export var _weapon_attachment_state_path: NodePath = "weapon_attachment_state"
 export var _fighting_state_path: NodePath = "fighting_attachment_state"
 
-onready var player: Player = get_node(_player_path)
+onready var player = get_node(_player_path)
 onready var card_selection_state = get_node(_card_selection_state_path)
 onready var weapon_attachment_state = get_node(_weapon_attachment_state_path)
 onready var fighting_state = get_node(_fighting_state_path)
@@ -23,9 +23,9 @@ var current_state: int = State.CARD_SELECTION
 var state_machine: StateMachine
 
 
-func _ready():
+func setup():
 	state_machine = StateMachine.new()
-	state_machine.setup(self, State.PREP, states)
+	state_machine.setup(self, State.CARD_SELECTION, states)
 
 
 func _process(delta: float):

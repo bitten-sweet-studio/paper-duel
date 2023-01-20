@@ -6,6 +6,6 @@ export var definition: Resource
 var bullets := []
 
 
-func setup(p_definition: WeaponDefinition):
+func setup(p_definition):
 	definition = p_definition
 	pass

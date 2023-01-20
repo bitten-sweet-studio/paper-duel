@@ -11,6 +11,7 @@ func enter(state_machine):
 	_state_machine = state_machine
 	_player = _state_machine.player
 	_player.movement.is_movement_enabled = false
+	input_definition = _player.input_definition
 	print("Card selection begun")
 
 

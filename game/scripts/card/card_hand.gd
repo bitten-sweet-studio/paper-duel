@@ -10,11 +10,11 @@ func _ready():
 
 
 func hover_previous():
-	hover_by_offset(-1)
+	hover_by_offset(+1)
 
 
 func hover_next():
-	hover_by_offset(+1)
+	hover_by_offset(-1)
 
 
 func hover_by_offset(offset: int):

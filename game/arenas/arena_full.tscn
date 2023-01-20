@@ -25,10 +25,11 @@ script = ExtResource( 10 )
 [node name="prep_state" type="Node" parent="match"]
 script = ExtResource( 13 )
 label_path = NodePath("../../time_label")
+player_manager_path = NodePath("../../players")
 timer_path = NodePath("prep_timer")
 
 [node name="prep_timer" type="Timer" parent="match/prep_state"]
-wait_time = 20.0
+wait_time = 5.0
 one_shot = true
 
 [node name="fighting_state" type="Node" parent="match"]
@@ -37,7 +38,7 @@ label_path = NodePath("../../time_label")
 timer_path = NodePath("fighting_timer")
 
 [node name="fighting_timer" type="Timer" parent="match/fighting_state"]
-wait_time = 60.0
+wait_time = 5.0
 one_shot = true
 
 [node name="camera_2d" type="Camera2D" parent="."]
@@ -76,18 +77,26 @@ position = Vector2( 1970, 0 )
 [node name="players_spawn_positions" type="Node2D" parent="."]
 
 [node name="Position2D" type="Position2D" parent="players_spawn_positions"]
-position = Vector2( 100, 100 )
+position = Vector2( 428, 167 )
 
 [node name="Position2D2" type="Position2D" parent="players_spawn_positions"]
-position = Vector2( 1820, 100 )
+position = Vector2( 1477, 145 )
 
 [node name="players" type="Node2D" parent="."]
 script = ExtResource( 9 )
 
 [node name="player_left" parent="players" instance=ExtResource( 5 )]
+position = Vector2( 121, 53 )
+__meta__ = {
+"_edit_group_": true
+}
 input_definition = ExtResource( 8 )
 
 [node name="player_right" parent="players" instance=ExtResource( 5 )]
+position = Vector2( 1375, 103 )
+__meta__ = {
+"_edit_group_": true
+}
 input_definition = ExtResource( 7 )
 
 [node name="time_label" type="Label" parent="."]

@@ -15,8 +15,8 @@ onready var players_spawn_position = get_node(players_spawn_position_path)
 onready var players = get_node(players_path)
 
 func _ready():
-    reset_players_position()
+	reset_players_position()
 
 func reset_players_position():
-    for i in players.get_child_count():
-        players.get_child(i).global_position = players_spawn_position.get_child(i).global_position
+	for i in players.get_child_count():
+		players.get_child(i).global_position = players_spawn_position.get_child(i).global_position
