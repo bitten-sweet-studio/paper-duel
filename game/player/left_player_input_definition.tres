@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=2 format=2]
 
-[ext_resource path="res://scripts/movement_input_definition.gd" type="Script" id=1]
+[ext_resource path="res://scripts/player/movement_input_definition.gd" type="Script" id=1]
 
 [resource]
 script = ExtResource( 1 )
@@ -8,3 +8,5 @@ left_input = "wasd_left"
 right_input = "wasd_right"
 up_input = "wasd_up"
 down_input = "wasd_down"
+interact = "wasd_interact"
+cancel = "wasd_cancel"
