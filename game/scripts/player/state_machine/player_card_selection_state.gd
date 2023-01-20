@@ -1,7 +1,5 @@
 extends Node
 
-onready var arena_full = get_tree().root.get_child(0)
-onready var period_manager = arena_full.get_node("period_manager")
 export var input_definition : Resource
 
 func start():

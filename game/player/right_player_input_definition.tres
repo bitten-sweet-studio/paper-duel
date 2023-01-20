@@ -4,9 +4,9 @@
 
 [resource]
 script = ExtResource( 1 )
-left_input = "arrow_left"
-right_input = "arrow_right"
-up_input = "arrow_up"
-down_input = "arrow_down"
-interact = "arrow_interact"
-cancel = "arrow_cancel"
+left_input = "arrows_left"
+right_input = "arrows_right"
+up_input = "arrows_up"
+down_input = "arrows_down"
+interact = "arrows_interact"
+cancel = "arrows_cancel"

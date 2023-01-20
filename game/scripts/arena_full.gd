@@ -13,13 +13,10 @@ export var player_scene : PackedScene
 
 onready var players_spawn_position = get_node(players_spawn_position_path)
 onready var players = get_node(players_path)
-onready var period_manager = get_node("period_manager")
-onready var prep_time = period_manager.get_node("prep_time")
 
 func _ready():
-	reset_players_position()
-	prep_time.start()
+    reset_players_position()
 
 func reset_players_position():
-	for i in players.get_child_count():
-		players.get_child(i).global_position = players_spawn_position.get_child(i).global_position
+    for i in players.get_child_count():
+        players.get_child(i).global_position = players_spawn_position.get_child(i).global_position

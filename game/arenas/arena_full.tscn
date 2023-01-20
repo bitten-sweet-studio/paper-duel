@@ -8,30 +8,35 @@
 [ext_resource path="res://scripts/arena_full.gd" type="Script" id=6]
 [ext_resource path="res://player/right_player_input_definition.tres" type="Resource" id=7]
 [ext_resource path="res://player/left_player_input_definition.tres" type="Resource" id=8]
-[ext_resource path="res://scripts/periods/period_manager.gd" type="Script" id=10]
-[ext_resource path="res://scripts/periods/fight_time.gd" type="Script" id=11]
-[ext_resource path="res://scripts/periods/prep_time.gd" type="Script" id=13]
+[ext_resource path="res://scripts/match/match_state_machine.gd" type="Script" id=10]
+[ext_resource path="res://scripts/match/match_fighting_state.gd" type="Script" id=11]
+[ext_resource path="res://scripts/match/match_prep_state.gd" type="Script" id=13]
 
 [node name="arena_full" type="Node2D"]
 script = ExtResource( 6 )
-card_timer_path = NodePath("period_manager/prep_time/prep_timer")
+card_timer_path = NodePath("match/prep_state/prep_timer")
 weapon_attachment_timer_path = NodePath("")
 player_scene = ExtResource( 5 )
 
-[node name="period_manager" type="Node" parent="."]
+[node name="match" type="Node" parent="."]
 script = ExtResource( 10 )
 
-[node name="prep_time" type="Node" parent="period_manager"]
+[node name="prep_state" type="Node" parent="match"]
 script = ExtResource( 13 )
+label_path = NodePath("../../time_label")
+timer_path = NodePath("prep_timer")
 
-[node name="prep_timer" type="Timer" parent="period_manager/prep_time"]
-wait_time = 3.0
+[node name="prep_timer" type="Timer" parent="match/prep_state"]
+wait_time = 20.0
 one_shot = true
 
-[node name="fight_time" type="Node" parent="period_manager"]
+[node name="fighting_state" type="Node" parent="match"]
 script = ExtResource( 11 )
+label_path = NodePath("../../time_label")
+timer_path = NodePath("fighting_timer")
 
-[node name="fight_timer" type="Timer" parent="period_manager/fight_time"]
+[node name="fighting_timer" type="Timer" parent="match/fighting_state"]
+wait_time = 60.0
 one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -91,5 +96,5 @@ margin_bottom = 486.0
 rect_scale = Vector2( 8.99015, 12.0935 )
 text = "00:30"
 
-[connection signal="timeout" from="period_manager/prep_time/prep_timer" to="period_manager/prep_time" method="_on_prep_timer_timeout"]
-[connection signal="timeout" from="period_manager/fight_time/fight_timer" to="period_manager/fight_time" method="_on_fight_timer_timeout"]
+[connection signal="timeout" from="match/prep_state/prep_timer" to="match/prep_state" method="_on_prep_timer_timeout"]
+[connection signal="timeout" from="match/fighting_state/fighting_timer" to="match/fighting_state" method="_on_fight_timer_timeout"]
