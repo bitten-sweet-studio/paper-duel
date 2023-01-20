@@ -26,11 +26,17 @@ var state_machine: StateMachine
 func setup():
 	state_machine = StateMachine.new()
 	state_machine.setup(self, State.CARD_SELECTION, states)
-
+	global.get("prep_timer").connect("timeout", self, "_on_prep_timer_timeout")
+	global.get("fighting_timer").connect("timeout", self, "_on_fighting_timer_timeout")
 
 func _process(delta: float):
 	state_machine.update(delta)
 
-
 func change_state(new_state_key: int):
 	state_machine.change_state(new_state_key)
+	
+func _on_prep_timer_timeout():
+	change_state(State.FIGHTING)
+	
+func _on_fighting_timer_timeout():
+	change_state(State.CARD_SELECTION)

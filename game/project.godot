@@ -163,6 +163,10 @@ run/main_scene="res://arenas/arena_full.tscn"
 boot_splash/bg_color=Color( 0.141176, 0.141176, 0.141176, 1 )
 config/icon="res://util/textures/icon.png"
 
+[autoload]
+
+global="*res://util/global.tscn"
+
 [display]
 
 window/size/width=1920

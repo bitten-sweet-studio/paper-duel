@@ -7,8 +7,8 @@ var _state_machine: PlayerStateMachine
 var _player
 
 
-func enter(state_machine):
-	_state_machine = state_machine
+func enter(owner):
+	_state_machine = owner
 	_player = _state_machine.player
 	_player.movement.is_movement_enabled = false
 	input_definition = _player.input_definition

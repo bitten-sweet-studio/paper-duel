@@ -7,8 +7,6 @@ export var card_timer_path : NodePath = ("card_timer")
 export var weapon_attachment_timer_path : NodePath = ("weapon_attachment_timer")
 export var time_label_path : NodePath = ("time_label")
 
-
-
 export var player_scene : PackedScene
 
 onready var players_spawn_position = get_node(players_spawn_position_path)
