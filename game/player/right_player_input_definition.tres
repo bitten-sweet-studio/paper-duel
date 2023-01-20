@@ -1,9 +1,10 @@
 [gd_resource type="Resource" load_steps=2 format=2]
 
-[ext_resource path="res://scripts/player/movement_input_definition.gd" type="Script" id=1]
+[ext_resource path="res://scripts/player/player_input_definition.gd" type="Script" id=1]
 
 [resource]
 script = ExtResource( 1 )
+is_input_enabled = true
 left_input = "arrows_left"
 right_input = "arrows_right"
 up_input = "arrows_up"

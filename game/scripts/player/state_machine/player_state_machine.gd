@@ -1,18 +1,36 @@
 extends Node
+class_name PlayerStateMachine
 
-enum PlayerState {
-	CARD_SELECTION,
-	WEAPON_ATTACHMENT,
-	FIGHTING
+enum State { CARD_SELECTION, WEAPON_ATTACHMENT, FIGHTING }
+
+export var _player_path: NodePath
+export var _card_selection_state_path: NodePath = "card_selection_state"
+export var _weapon_attachment_state_path: NodePath = "weapon_attachment_state"
+export var _fighting_state_path: NodePath = "fighting_attachment_state"
+
+onready var player: Player = get_node(_player_path)
+onready var card_selection_state = get_node(_card_selection_state_path)
+onready var weapon_attachment_state = get_node(_weapon_attachment_state_path)
+onready var fighting_state = get_node(_fighting_state_path)
+
+onready var states: Dictionary = {
+	State.CARD_SELECTION: card_selection_state,
+	State.WEAPON_ATTACHMENT: weapon_attachment_state,
+	State.FIGHTING: fighting_state
 }
 
-#var states: Dictionary = {
-#	PlayerState.CARD_SELECTION : $card_selection_state,
-#	PlayerState.WEAPON_ATTACHMENT : $card_selection_state,
-#	PlayerState.FIGHTING : $fighting_state
-#}
+var current_state: int = State.CARD_SELECTION
+var state_machine: StateMachine
 
-var current_state: int = PlayerState.CARD_SELECTION
 
-#func _process(delta):
-#	pass
+func _ready():
+	state_machine = StateMachine.new()
+	state_machine.setup(self, State.PREP, states)
+
+
+func _process(delta: float):
+	state_machine.update(delta)
+
+
+func change_state(new_state_key: int):
+	state_machine.change_state(new_state_key)
