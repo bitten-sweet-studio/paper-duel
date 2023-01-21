@@ -11,6 +11,6 @@ func set_hover_state(value: bool) -> void:
 	border.visible = value
 
 
-func instantiate_weapon() -> Weapon:
-	var result = weapon_definition.instantiate_weapon()
+func instantiate_weapon(player) -> Weapon:
+	var result = weapon_definition.instance(player)
 	return result

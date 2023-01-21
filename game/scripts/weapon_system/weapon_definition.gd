@@ -3,16 +3,23 @@ class_name WeaponDefinition
 
 export var body_scene: PackedScene
 export var traits := []
+export var cost: int = 1
+export var fire_rate_per_second: float = 1
+export var spread_angle_range: Vector2 = Vector2(15, 20)
+export var bullet_base_speed: float = 1
+export var bullet_raw_acceleration_per_update: float = 0
+export var bullet_acceleration_multiplier_per_update: float = 1
+export var bullets_per_burst_range: Vector2 = Vector2.ONE
 export var bullets_definition := []
-export var bullets_per_shot_range: Vector2
-export var bullets_spread_range: Vector2
+export var bullets_per_shot_range: Vector2 = Vector2.ONE
+export var bullets_spread_range: Vector2 = Vector2.ZERO
 
 
-func instantiate_weapon():
-	var weapon_root: Weapon = Weapon.new()
-	weapon_root.setup(self)
+func instance(player):
+    var result = Weapon.new(player, self)
+    return result
 
-	var body_instance = body_scene.instance()
-	weapon_root.add_child(body_instance)
 
-	return weapon_root
+func update(owner, delta: float):
+    for trait in traits:
+        trait.update(owner, delta)

@@ -9,7 +9,7 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Node",
+"base": "KinematicBody2D",
 "class": "Bullet",
 "language": "GDScript",
 "path": "res://scripts/weapon_system/bullet.gd"
@@ -85,6 +85,11 @@ _global_script_classes=[ {
 "path": "res://scripts/player/state_machine/player_weapon_attachment_state.gd"
 }, {
 "base": "Node",
+"class": "RangeUtil",
+"language": "GDScript",
+"path": "res://scripts/util/range_util.gd"
+}, {
+"base": "Node",
 "class": "StateMachine",
 "language": "GDScript",
 "path": "res://scripts/util/state_machine/state_machine.gd"
@@ -98,6 +103,11 @@ _global_script_classes=[ {
 "class": "Weapon",
 "language": "GDScript",
 "path": "res://scripts/weapon_system/weapon.gd"
+}, {
+"base": "Node2D",
+"class": "WeaponBody",
+"language": "GDScript",
+"path": "res://scripts/weapon_system/weapon_body.gd"
 }, {
 "base": "Resource",
 "class": "WeaponDefinition",
@@ -113,11 +123,6 @@ _global_script_classes=[ {
 "class": "WeaponSlotManager",
 "language": "GDScript",
 "path": "res://scripts/weapon_system/weapon_slot_manager.gd"
-}, {
-"base": "Node",
-"class": "WeaponSystem",
-"language": "GDScript",
-"path": "res://scripts/weapon_system/weapon_system.gd"
 }, {
 "base": "Resource",
 "class": "WeaponTrait",
@@ -145,13 +150,14 @@ _global_script_class_icons={
 "PlayerMovement": "",
 "PlayerStateMachine": "",
 "PlayerWeaponAttachmentState": "",
+"RangeUtil": "",
 "StateMachine": "",
 "StringRes": "",
 "Weapon": "",
+"WeaponBody": "",
 "WeaponDefinition": "",
 "WeaponSlot": "",
 "WeaponSlotManager": "",
-"WeaponSystem": "",
 "WeaponTrait": "",
 "WeaponUser": ""
 }
@@ -161,7 +167,7 @@ _global_script_class_icons={
 config/name="godot-wild-jam-game-53"
 run/main_scene="res://arenas/arena_full.tscn"
 boot_splash/bg_color=Color( 0.141176, 0.141176, 0.141176, 1 )
-config/icon="res://util/textures/icon.png"
+config/icon="res://util/textures/godot_icon.png"
 
 [autoload]
 

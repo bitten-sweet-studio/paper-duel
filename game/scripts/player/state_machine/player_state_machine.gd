@@ -29,15 +29,23 @@ func setup():
 	global.get("prep_timer").connect("timeout", self, "_on_prep_timer_timeout")
 	global.get("fighting_timer").connect("timeout", self, "_on_fighting_timer_timeout")
 
+
 func _process(delta: float):
 	state_machine.update(delta)
 
+
+func _physics_process(delta: float):
+	state_machine.physics_update(delta)
+
+
 func change_state(new_state_key: int):
 	state_machine.change_state(new_state_key)
-	
+
+
 func _on_prep_timer_timeout():
 	change_state(State.FIGHTING)
-	
+
+
 func _on_fighting_timer_timeout():
 	player.currency_agent.increase_max_currency()
 	change_state(State.CARD_SELECTION)

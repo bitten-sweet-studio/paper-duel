@@ -1,13 +1,39 @@
-extends Node
+extends KinematicBody2D
 class_name Bullet
 
 export var definition: Resource
 
-var owner_weapon: Weapon
 var direction: Vector2
-var speed: Vector2
+var speed: float
+var weapon: Weapon
 
 
-func _init(p_definition: BulletDefinition, p_owner_weapon: Weapon):
-	definition = p_definition
-	owner_weapon = p_owner_weapon
+func _init(p_definition, p_weapon):
+    definition = p_definition
+    weapon = p_weapon
+
+    var body = definition.body_scene.instance()
+    add_child(body)
+
+    speed = weapon.definition.bullet_base_speed
+
+
+func custom_update(delta: float):
+    update_definition(delta)
+
+    var raw_acceleration_per_update = weapon.definition.bullet_raw_acceleration_per_update
+    var acceleration_multiplier_per_update = weapon.definition.bullet_acceleration_multiplier_per_update
+    speed = ((speed + raw_acceleration_per_update) * acceleration_multiplier_per_update)
+
+    #var min_spread_radians: float = ((-angle/2)* 0.0174533
+    #var max_spread_radians: float = (angle/2)*0.0174533
+    #var spread_radians: float = RangeUtil.random(min_spread_radians, max_spread_radians)
+    #var temp_direction = direction.rotated()
+    var movement: Vector2 = speed * direction * delta
+
+    move_and_slide(movement)
+    #get_slide_collision()
+
+
+func update_definition(delta: float):
+    definition.custom_update(self, delta)
