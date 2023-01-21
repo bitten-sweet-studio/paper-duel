@@ -1,7 +1,9 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://arenas/arena.tscn" type="PackedScene" id=1]
 [ext_resource path="res://font/Street-Postah.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://scripts/util/event_system/event_label_binder.gd" type="Script" id=3]
+[ext_resource path="res://player/left_player_health_changed_event.tres" type="Resource" id=4]
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://card/card_hand.tscn" type="PackedScene" id=6]
 [ext_resource path="res://player/right_player_input_definition.tres" type="Resource" id=7]
@@ -11,6 +13,7 @@
 [ext_resource path="res://scripts/match/state_machine/match_fighting_state.gd" type="Script" id=11]
 [ext_resource path="res://scripts/util/global_node.gd" type="Script" id=12]
 [ext_resource path="res://scripts/match/state_machine/match_prep_state.gd" type="Script" id=13]
+[ext_resource path="res://player/right_player_health_changed_event.tres" type="Resource" id=14]
 
 [sub_resource type="DynamicFont" id=1]
 size = 100
@@ -74,6 +77,7 @@ __meta__ = {
 }
 input_definition = ExtResource( 8 )
 _card_hand_path = NodePath("../../cards/card_hand_left")
+health_changed_event = ExtResource( 4 )
 
 [node name="player_right" parent="players" instance=ExtResource( 5 )]
 position = Vector2( 1309, 542 )
@@ -82,18 +86,47 @@ __meta__ = {
 }
 input_definition = ExtResource( 7 )
 _card_hand_path = NodePath("../../cards/card_hand_right")
+health_changed_event = ExtResource( 14 )
 
 [node name="time_label" type="Label" parent="."]
-margin_left = 875.0
-margin_top = 98.0
-margin_right = 1251.0
-margin_bottom = 238.0
+margin_left = 837.0
+margin_top = 95.0
+margin_right = 1213.0
+margin_bottom = 235.0
 rect_scale = Vector2( 0.5, 0.5 )
 custom_colors/font_color = Color( 0.929412, 0.929412, 0.929412, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "00:30"
 align = 1
 valign = 1
+
+[node name="health_left" type="Label" parent="."]
+margin_left = 492.0
+margin_top = 95.0
+margin_right = 868.0
+margin_bottom = 235.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_colors/font_color = Color( 0.929412, 0.929412, 0.929412, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "5/5"
+align = 1
+valign = 1
+script = ExtResource( 3 )
+event = ExtResource( 4 )
+
+[node name="health_right" type="Label" parent="."]
+margin_left = 1238.0
+margin_top = 93.0
+margin_right = 1614.0
+margin_bottom = 233.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_colors/font_color = Color( 0.929412, 0.929412, 0.929412, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "5/5"
+align = 1
+valign = 1
+script = ExtResource( 3 )
+event = ExtResource( 14 )
 
 [connection signal="timeout" from="match/prep_state/prep_timer" to="match/prep_state" method="_on_prep_timer_timeout"]
 [connection signal="timeout" from="match/fighting_state/fighting_timer" to="match/fighting_state" method="_on_fight_timer_timeout"]

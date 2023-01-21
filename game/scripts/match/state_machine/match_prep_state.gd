@@ -14,7 +14,7 @@ var _state_machine: MatchStateMachine
 func enter(p_state_machine):
 	_state_machine = p_state_machine
 	timer.start()
-	_state_machine.match_state_text_event.emit("PREPARE!")
+
 
 
 func update(_delta: float):

@@ -8,9 +8,9 @@ onready var border: CanvasItem = get_node(border_path)
 
 
 func set_hover_state(value: bool) -> void:
-    border.visible = value
+	border.visible = value
 
 
 func instantiate_weapon(player) -> Weapon:
-    var result = weapon_definition.instance(player)
-    return result
+	var result = weapon_definition.instance(player)
+	return result
