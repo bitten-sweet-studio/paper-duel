@@ -36,7 +36,7 @@ player_manager_path = NodePath("../../players")
 timer_path = NodePath("prep_timer")
 
 [node name="prep_timer" type="Timer" parent="match/prep_state"]
-wait_time = 40.0
+wait_time = 5.0
 one_shot = true
 script = ExtResource( 12 )
 key = "prep_timer"
@@ -72,16 +72,16 @@ position = Vector2( 646, 542 )
 __meta__ = {
 "_edit_group_": true
 }
-input_definition = ExtResource( 8 )
 _card_hand_path = NodePath("../../cards/card_hand_left")
+input_definition = ExtResource( 8 )
 
 [node name="player_right" parent="players" instance=ExtResource( 5 )]
 position = Vector2( 1309, 542 )
 __meta__ = {
 "_edit_group_": true
 }
-input_definition = ExtResource( 7 )
 _card_hand_path = NodePath("../../cards/card_hand_right")
+input_definition = ExtResource( 7 )
 
 [node name="time_label" type="Label" parent="."]
 margin_left = 905.0

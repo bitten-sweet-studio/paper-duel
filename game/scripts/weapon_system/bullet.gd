@@ -25,10 +25,6 @@ func custom_update(delta: float):
     var acceleration_multiplier_per_update = weapon.definition.bullet_acceleration_multiplier_per_update
     speed = ((speed + raw_acceleration_per_update) * acceleration_multiplier_per_update)
 
-    #var min_spread_radians: float = ((-angle/2)* 0.0174533
-    #var max_spread_radians: float = (angle/2)*0.0174533
-    #var spread_radians: float = RangeUtil.random(min_spread_radians, max_spread_radians)
-    #var temp_direction = direction.rotated()
     var movement: Vector2 = speed * direction * delta
 
     move_and_slide(movement)
