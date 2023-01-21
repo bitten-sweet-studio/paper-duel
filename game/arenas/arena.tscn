@@ -18,10 +18,10 @@ texture = ExtResource( 3 )
 [node name="arena_inside" type="NinePatchRect" parent="."]
 modulate = Color( 1, 0.352941, 0, 1 )
 anchor_right = 1.0
-margin_left = 28.0
-margin_top = -11.0
-margin_right = 1893.0
-margin_bottom = 1063.0
+margin_left = -109.0
+margin_top = -90.0
+margin_right = 2030.0
+margin_bottom = 1142.0
 rect_pivot_offset = Vector2( 960, 540 )
 texture = ExtResource( 2 )
 patch_margin_left = 508
@@ -32,10 +32,10 @@ patch_margin_bottom = 380
 [node name="arena_outside" type="NinePatchRect" parent="."]
 modulate = Color( 0, 0, 0, 1 )
 anchor_right = 1.0
-margin_left = -10.0
-margin_top = -21.0
-margin_right = 1931.0
-margin_bottom = 1071.0
+margin_left = -126.0
+margin_top = -86.0
+margin_right = 2046.0
+margin_bottom = 1136.0
 rect_pivot_offset = Vector2( 960, 540 )
 texture = ExtResource( 1 )
 patch_margin_left = 508
@@ -46,40 +46,40 @@ patch_margin_bottom = 380
 [node name="walls" type="Node2D" parent="."]
 
 [node name="corner_wall_left_01" parent="walls" instance=ExtResource( 4 )]
-position = Vector2( 446, 334 )
+position = Vector2( 327, 258 )
 rotation = 0.785398
 scale = Vector2( 1.626, 0.168 )
 
 [node name="corner_wall_left_02" parent="walls" instance=ExtResource( 4 )]
-position = Vector2( 451, 769 )
+position = Vector2( 323, 831 )
 rotation = -0.785398
 scale = Vector2( 1.626, 0.168 )
 
 [node name="corner_wall_right_02" parent="walls" instance=ExtResource( 4 )]
-position = Vector2( 1478, 763 )
+position = Vector2( 1596, 834 )
 rotation = 0.785398
 scale = Vector2( 1.626, 0.168 )
 
 [node name="corner_wall_right_01" parent="walls" instance=ExtResource( 4 )]
-position = Vector2( 1471, 328 )
+position = Vector2( 1594, 259 )
 rotation = -0.785398
 scale = Vector2( 1.626, 0.168 )
 
 [node name="side_wall_left" parent="walls" instance=ExtResource( 4 )]
-position = Vector2( 412, 542 )
+position = Vector2( 288, 542 )
 scale = Vector2( 0.786087, 0.53835 )
 
 [node name="side_wall_right" parent="walls" instance=ExtResource( 4 )]
-position = Vector2( 1513, 550 )
+position = Vector2( 1634, 550 )
 scale = Vector2( 0.786087, 0.53835 )
 
 [node name="side_wall_bottom" parent="walls" instance=ExtResource( 4 )]
-position = Vector2( 965, 801 )
+position = Vector2( 958, 875 )
 rotation = 1.5708
 scale = Vector2( 0.786087, 1.05835 )
 
 [node name="side_wall_up" parent="walls" instance=ExtResource( 4 )]
-position = Vector2( 960, 287 )
+position = Vector2( 958, 221 )
 rotation = 1.5708
 scale = Vector2( 0.786087, 1.05835 )
 

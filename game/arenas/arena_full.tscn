@@ -59,10 +59,10 @@ path = NodePath(".")
 [node name="cards" type="Node2D" parent="."]
 
 [node name="card_hand_right" parent="cards" instance=ExtResource( 6 )]
-position = Vector2( 1341, 953 )
+position = Vector2( 1779, 141 )
 
 [node name="card_hand_left" parent="cards" instance=ExtResource( 6 )]
-position = Vector2( 614, 953 )
+position = Vector2( 167, 141 )
 
 [node name="players" type="Node2D" parent="."]
 script = ExtResource( 9 )
@@ -84,10 +84,10 @@ input_definition = ExtResource( 7 )
 _card_hand_path = NodePath("../../cards/card_hand_right")
 
 [node name="time_label" type="Label" parent="."]
-margin_left = 905.0
-margin_top = 177.0
-margin_right = 1163.0
-margin_bottom = 273.0
+margin_left = 875.0
+margin_top = 98.0
+margin_right = 1251.0
+margin_bottom = 238.0
 rect_scale = Vector2( 0.5, 0.5 )
 custom_colors/font_color = Color( 0.929412, 0.929412, 0.929412, 1 )
 custom_fonts/font = SubResource( 1 )
