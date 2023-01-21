@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scripts/player/player.gd" type="Script" id=1]
 [ext_resource path="res://util/textures/icon.png" type="Texture" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://scripts/player/state_machine/player_card_selection_state.gd" type="Script" id=5]
 [ext_resource path="res://scripts/player/state_machine/player_fighting_state.gd" type="Script" id=6]
 [ext_resource path="res://scripts/player/state_machine/player_state_machine.gd" type="Script" id=7]
-[ext_resource path="res://card_hand/card_hand.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scripts/weapon_system/weapon_slot_manager.gd" type="Script" id=9]
 [ext_resource path="res://weapon/weapon_slot.tscn" type="PackedScene" id=10]
 
@@ -19,6 +18,7 @@ extents = Vector2( 33, 33 )
 
 [node name="player" type="Node2D"]
 script = ExtResource( 1 )
+_card_hand_path = NodePath("")
 
 [node name="player_body" type="KinematicBody2D" parent="."]
 script = ExtResource( 3 )
@@ -51,6 +51,3 @@ script = ExtResource( 4 )
 
 [node name="fighting_state" type="Node" parent="state_machine"]
 script = ExtResource( 6 )
-
-[node name="card_hand" parent="." instance=ExtResource( 8 )]
-position = Vector2( 13, 865 )
