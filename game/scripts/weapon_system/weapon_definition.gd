@@ -10,6 +10,7 @@ export var bullet_base_speed: float = 1
 export var bullet_raw_acceleration_per_update: float = 0
 export var bullet_acceleration_multiplier_per_update: float = 1
 export var bullets_per_burst_range: Vector2 = Vector2.ONE
+export var burst_fire_rate_per_second: float = 0.1
 export var bullets_definition := []
 export var bullets_per_shot_range: Vector2 = Vector2.ONE
 export var bullets_spread_range: Vector2 = Vector2.ZERO
