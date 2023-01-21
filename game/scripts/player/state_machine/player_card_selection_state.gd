@@ -34,7 +34,7 @@ func handle_interact_input():
 	var weapon: Weapon = _player.card_hand.select_current_card()
 	_player.card_hand.current_card().queue_free()
 	_player.weapon_slot_manager.start_weapon_attachment(weapon)
-	_player.weapon_slot_manager.attach_to_first_valid_slot()
+	_player.weapon_slot_manager.attach_to_first_empty_valid_slot()
 
 	_state_machine.change_state(PlayerStateMachine.State.WEAPON_ATTACHMENT)
 

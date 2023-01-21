@@ -25,9 +25,6 @@ func end_weapon_attachment():
 	_handled_weapon = null
 	pass
 	
-func attach_to_first_valid_slot():
-	attach_weapon(_first_valid_slot_index)
-
 func attach_previous():
 	attach_by_offset(-1)
 
@@ -82,7 +79,8 @@ func get_slots_indexes_range(start_index):
 	return range_to_be_checked
 	
 func get_first_empty_slot_index(start_index: int):
-	for i in get_slots_indexes_range(start_index):
+	var range_to_be_checked = get_slots_indexes_range(start_index)
+	for i in range_to_be_checked:
 		if !get_slot(i).has_weapon():
 			return i
 	return null
