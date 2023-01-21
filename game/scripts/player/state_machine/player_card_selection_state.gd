@@ -12,6 +12,7 @@ func enter(state_machine):
 	_player = _state_machine.player
 	_player.movement.is_movement_enabled = false
 	input_definition = _player.input_definition
+
 	print("Card selection begun")
 
 
@@ -32,22 +33,23 @@ func handle_input():
 
 func handle_interact_input():
 	var weapon: Weapon = _player.card_hand.select_current_card()
+	if !_player.currency_agent.spend_currency(get_weapon_cost()):
+		handle_currency_not_enough()
 	_player.card_hand.current_card().queue_free()
 	_player.weapon_slot_manager.start_weapon_attachment(weapon)
 	_player.weapon_slot_manager.attach_to_first_empty_valid_slot()
-
+	
 	_state_machine.change_state(PlayerStateMachine.State.WEAPON_ATTACHMENT)
 
 
 func exit():
 	pass
 
-#func try_buy_card():
-#if money >= current_card.price:
-#buy_card()
-
-#func buy_card():
-#money -= current_card.price
-#current_card.weapon = current_weapon
-#current_card.queue_free()
-#weapon_attachment_state.start()
+func get_weapon_cost() -> int:
+	return 2
+	#return weapon.definition.cost
+	
+func handle_currency_not_enough():
+	#Play animations ( weapon too expensive )
+	print("Currency not enough!")
+	pass

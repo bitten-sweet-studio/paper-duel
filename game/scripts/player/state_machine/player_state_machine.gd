@@ -39,4 +39,6 @@ func _on_prep_timer_timeout():
 	change_state(State.FIGHTING)
 	
 func _on_fighting_timer_timeout():
+	player.currency_agent.increase_max_currency()
 	change_state(State.CARD_SELECTION)
+
