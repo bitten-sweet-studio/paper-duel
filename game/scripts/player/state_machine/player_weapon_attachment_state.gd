@@ -19,7 +19,7 @@ func update(_delta: float):
 	handle_input()
 
 func physics_update(_delta: float):
-    pass
+	pass
 
 func handle_input():
 	if Input.is_action_just_pressed(input_definition.right_input):
