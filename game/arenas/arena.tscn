@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://arenas/arena_outside.png" type="Texture" id=1]
+[ext_resource path="res://arenas/arena_inside.png" type="Texture" id=2]
+[ext_resource path="res://arenas/background_sheet.png" type="Texture" id=3]
+[ext_resource path="res://arenas/side_wall.tscn" type="PackedScene" id=4]
+[ext_resource path="res://arenas/middle_wall.tscn" type="PackedScene" id=5]
+
+[node name="arena" type="Node2D"]
+
+[node name="background_sheet" type="Sprite" parent="."]
+modulate = Color( 0.905882, 0.905882, 0.905882, 1 )
+position = Vector2( 956.357, 538.701 )
+rotation = 1.5708
+scale = Vector2( 0.602681, 0.850793 )
+texture = ExtResource( 3 )
+
+[node name="arena_inside" type="NinePatchRect" parent="."]
+modulate = Color( 1, 0.352941, 0, 1 )
+anchor_right = 1.0
+margin_left = 28.0
+margin_top = -11.0
+margin_right = 1893.0
+margin_bottom = 1063.0
+rect_pivot_offset = Vector2( 960, 540 )
+texture = ExtResource( 2 )
+patch_margin_left = 508
+patch_margin_top = 423
+patch_margin_right = 509
+patch_margin_bottom = 380
+
+[node name="arena_outside" type="NinePatchRect" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+anchor_right = 1.0
+margin_left = -10.0
+margin_top = -21.0
+margin_right = 1931.0
+margin_bottom = 1071.0
+rect_pivot_offset = Vector2( 960, 540 )
+texture = ExtResource( 1 )
+patch_margin_left = 508
+patch_margin_top = 423
+patch_margin_right = 509
+patch_margin_bottom = 380
+
+[node name="walls" type="Node2D" parent="."]
+
+[node name="side_wall_left" parent="walls" instance=ExtResource( 4 )]
+position = Vector2( 431, 256 )
+scale = Vector2( 0.786087, 0.53835 )
+
+[node name="side_wall_right" parent="walls" instance=ExtResource( 4 )]
+position = Vector2( 1531, 256 )
+scale = Vector2( 0.786087, 0.53835 )
+
+[node name="side_wall_bottom" parent="walls" instance=ExtResource( 4 )]
+position = Vector2( 1534, 822 )
+rotation = 1.5708
+scale = Vector2( 0.786087, 1.05835 )
+
+[node name="side_wall_up" parent="walls" instance=ExtResource( 4 )]
+position = Vector2( 1534, 311 )
+rotation = 1.5708
+scale = Vector2( 0.786087, 1.05835 )
+
+[node name="middle_wall" parent="walls" instance=ExtResource( 5 )]
+position = Vector2( 962, 542 )
+scale = Vector2( 1.029, 1 )
