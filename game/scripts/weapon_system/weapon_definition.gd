@@ -17,10 +17,10 @@ export var bullets_spread_range: Vector2 = Vector2.ZERO
 
 
 func instance(player):
-	var result = Weapon.new(player, self)
-	return result
+    var result = Weapon.new(player, self)
+    return result
 
 
 func update(owner, delta: float):
-	for trait in traits:
-		trait.update(owner, delta)
+    for trait in traits:
+        trait.update(owner, delta)

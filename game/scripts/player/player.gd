@@ -24,6 +24,6 @@ onready var health_agent = get_node(_health_agent_path)
 
 
 func _ready():
-	movement.setup(self)
-	_state_machine.setup()
-	weapon_slot_manager.instantiate_weapon_slots()
+    movement.setup(self)
+    _state_machine.setup()
+    weapon_slot_manager.instantiate_weapon_slots()

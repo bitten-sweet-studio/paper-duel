@@ -72,16 +72,16 @@ position = Vector2( 646, 542 )
 __meta__ = {
 "_edit_group_": true
 }
-_card_hand_path = NodePath("../../cards/card_hand_left")
 input_definition = ExtResource( 8 )
+_card_hand_path = NodePath("../../cards/card_hand_left")
 
 [node name="player_right" parent="players" instance=ExtResource( 5 )]
 position = Vector2( 1309, 542 )
 __meta__ = {
 "_edit_group_": true
 }
-_card_hand_path = NodePath("../../cards/card_hand_right")
 input_definition = ExtResource( 7 )
+_card_hand_path = NodePath("../../cards/card_hand_right")
 
 [node name="time_label" type="Label" parent="."]
 margin_left = 875.0
