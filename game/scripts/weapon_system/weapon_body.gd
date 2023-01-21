@@ -5,5 +5,5 @@ export var tip_path: NodePath
 
 
 func get_tip():
-    var result = get_node(tip_path)
-    return result
+	var result = get_node(tip_path)
+	return result
