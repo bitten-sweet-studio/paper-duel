@@ -49,6 +49,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/match/state_machine/match_state_machine.gd"
 }, {
+"base": "Resource",
+"class": "OneParamCustomEvent",
+"language": "GDScript",
+"path": "res://scripts/util/event_system/one_param_event_res.gd"
+}, {
 "base": "Node2D",
 "class": "Player",
 "language": "GDScript",
@@ -99,6 +104,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/util/string_res.gd"
 }, {
+"base": "Resource",
+"class": "VoidCustomEvent",
+"language": "GDScript",
+"path": "res://scripts/util/event_system/void_event_res.gd"
+}, {
 "base": "Node2D",
 "class": "Weapon",
 "language": "GDScript",
@@ -143,6 +153,7 @@ _global_script_class_icons={
 "Global": "",
 "InputDefinition": "",
 "MatchStateMachine": "",
+"OneParamCustomEvent": "",
 "Player": "",
 "PlayerCardSelectionState": "",
 "PlayerFightingState": "",
@@ -153,6 +164,7 @@ _global_script_class_icons={
 "RangeUtil": "",
 "StateMachine": "",
 "StringRes": "",
+"VoidCustomEvent": "",
 "Weapon": "",
 "WeaponBody": "",
 "WeaponDefinition": "",
