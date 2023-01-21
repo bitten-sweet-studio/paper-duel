@@ -6,5 +6,4 @@ extents = Vector2( 25, 540 )
 [node name="side_wall" type="StaticBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -26, 541 )
 shape = SubResource( 1 )
