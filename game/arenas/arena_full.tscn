@@ -30,7 +30,7 @@ player_manager_path = NodePath("../../players")
 timer_path = NodePath("prep_timer")
 
 [node name="prep_timer" type="Timer" parent="match/prep_state"]
-wait_time = 5.0
+wait_time = 40.0
 one_shot = true
 script = ExtResource( 12 )
 key = "prep_timer"
