@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://arenas/arena.tscn" type="PackedScene" id=1]
 [ext_resource path="res://font/Street-Postah.otf" type="DynamicFontData" id=2]
@@ -14,6 +14,8 @@
 [ext_resource path="res://scripts/util/global_node.gd" type="Script" id=12]
 [ext_resource path="res://scripts/match/state_machine/match_prep_state.gd" type="Script" id=13]
 [ext_resource path="res://player/right_player_health_changed_event.tres" type="Resource" id=14]
+[ext_resource path="res://player/right_player_currency_changed_event.tres" type="Resource" id=15]
+[ext_resource path="res://player/left_player_currency_changed_event.tres" type="Resource" id=16]
 
 [sub_resource type="DynamicFont" id=1]
 size = 100
@@ -34,7 +36,7 @@ script = ExtResource( 10 )
 
 [node name="prep_state" type="Node" parent="match"]
 script = ExtResource( 13 )
-label_path = NodePath("../../time_label")
+label_path = NodePath("../../labels/time_label")
 player_manager_path = NodePath("../../players")
 timer_path = NodePath("prep_timer")
 
@@ -47,7 +49,7 @@ path = NodePath(".")
 
 [node name="fighting_state" type="Node" parent="match"]
 script = ExtResource( 11 )
-label_path = NodePath("../../time_label")
+label_path = NodePath("../../labels/time_label")
 timer_path = NodePath("fighting_timer")
 
 [node name="fighting_timer" type="Timer" parent="match/fighting_state"]
@@ -78,6 +80,7 @@ __meta__ = {
 input_definition = ExtResource( 8 )
 _card_hand_path = NodePath("../../cards/card_hand_left")
 health_changed_event = ExtResource( 4 )
+currency_changed_event = ExtResource( 16 )
 
 [node name="player_right" parent="players" instance=ExtResource( 5 )]
 position = Vector2( 1309, 542 )
@@ -87,8 +90,13 @@ __meta__ = {
 input_definition = ExtResource( 7 )
 _card_hand_path = NodePath("../../cards/card_hand_right")
 health_changed_event = ExtResource( 14 )
+currency_changed_event = ExtResource( 15 )
 
-[node name="time_label" type="Label" parent="."]
+[node name="labels" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="time_label" type="Label" parent="labels"]
 margin_left = 837.0
 margin_top = 95.0
 margin_right = 1213.0
@@ -100,7 +108,7 @@ text = "00:30"
 align = 1
 valign = 1
 
-[node name="health_left" type="Label" parent="."]
+[node name="health_left" type="Label" parent="labels"]
 margin_left = 492.0
 margin_top = 95.0
 margin_right = 868.0
@@ -114,7 +122,35 @@ valign = 1
 script = ExtResource( 3 )
 event = ExtResource( 4 )
 
-[node name="health_right" type="Label" parent="."]
+[node name="currency_left" type="Label" parent="labels"]
+margin_left = 496.0
+margin_top = 170.0
+margin_right = 872.0
+margin_bottom = 310.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_colors/font_color = Color( 0.929412, 0.929412, 0.929412, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "2"
+align = 1
+valign = 1
+script = ExtResource( 3 )
+event = ExtResource( 16 )
+
+[node name="currency_right" type="Label" parent="labels"]
+margin_left = 1231.0
+margin_top = 154.0
+margin_right = 1607.0
+margin_bottom = 294.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_colors/font_color = Color( 0.929412, 0.929412, 0.929412, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "2"
+align = 1
+valign = 1
+script = ExtResource( 3 )
+event = ExtResource( 15 )
+
+[node name="health_right" type="Label" parent="labels"]
 margin_left = 1238.0
 margin_top = 93.0
 margin_right = 1614.0

@@ -14,6 +14,7 @@ export var _health_agent_path: NodePath = "health_agent"
 export var weapon_slot: PackedScene 
 export var _weapon_slot_count : int
 export var health_changed_event : Resource
+export var currency_changed_event : Resource
 
 onready var weapon_slot_manager = get_node(_weapon_slot_manager_path)
 onready var weapon_user: WeaponUser = get_node(_weapon_user_path)
@@ -29,3 +30,4 @@ func _ready():
 	_state_machine.setup()
 	weapon_slot_manager.instantiate_weapon_slots()
 	health_agent.setup(self)
+	currency_agent.setup(self)
