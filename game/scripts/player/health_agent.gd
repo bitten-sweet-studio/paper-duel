@@ -1,23 +1,28 @@
 extends Node
 
-var max_health: int = 5
-var current_health: int = 5
+export var max_health: int = 5
+export var current_health: int = 5
+export var max_health_increase_per_turn: int = 0
+
 var _player
 
 
 func setup(player):
 	_player = player
+	emit_health_changed_event()
 
 
 func lose_health(damage: int = 1):
 	set_health(current_health - damage)
-	if current_health <= 0:
-		handle_death()
+
+	if current_health > 0:
+		return
+
+	handle_death()
 
 
 func handle_death():
-	print("You Died!")
-	pass
+	emit_died_event()
 
 
 func gain_health(heal: int = 1):
@@ -26,16 +31,28 @@ func gain_health(heal: int = 1):
 		set_health(max_health)
 
 
-func set_health(health: int = max_health):
+func set_health(health: int):
 	current_health = health
-	_player.health_changed_event.emit(String(current_health))
+	emit_health_changed_event()
 
 
-func increase_max_health(health: int = 1):
-	max_health += health
+func maximize_health():
 	set_health(max_health)
 
 
-func _on_player_hurtbox_area_entered(area):
-	#area.get_parent().destroy()
-	lose_health()
+func emit_died_event():
+	_player.health_changed_event.emit("Died!")
+
+
+func emit_health_changed_event():
+	var result: String = "H: " + str(current_health) + "/" + str(max_health)
+	_player.health_changed_event.emit(result)
+
+
+func increase_max_health():
+	max_health += max_health_increase_per_turn
+	maximize_health()
+
+
+func on_hit(damage: float):
+	lose_health(round(damage))

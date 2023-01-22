@@ -22,27 +22,29 @@ extents = Vector2( 33, 33 )
 [node name="player" type="Node2D"]
 script = ExtResource( 1 )
 _card_hand_path = NodePath("")
+_movement_path = NodePath("body")
 _weapon_user_path = NodePath("weapon_user")
+_weapon_slot_manager_path = NodePath("body/weapon_slots")
 
-[node name="player_body" type="KinematicBody2D" parent="."]
+[node name="body" type="KinematicBody2D" parent="."]
 collision_layer = 2
 collision_mask = 88
 script = ExtResource( 3 )
 
-[node name="player_sprite" type="Sprite" parent="player_body"]
+[node name="player_sprite" type="Sprite" parent="body"]
 texture = ExtResource( 2 )
 
-[node name="player_rigid_hurt_box" type="CollisionShape2D" parent="player_body"]
+[node name="rigid_shape" type="CollisionShape2D" parent="body"]
 shape = SubResource( 2 )
 
-[node name="player_hurtbox" type="Area2D" parent="player_body"]
+[node name="player_hurtbox" type="Area2D" parent="body"]
 collision_layer = 2
 collision_mask = 8
 
-[node name="player_hurtbox_collider" type="CollisionShape2D" parent="player_body/player_hurtbox"]
+[node name="player_hurtbox_collider" type="CollisionShape2D" parent="body/player_hurtbox"]
 shape = SubResource( 1 )
 
-[node name="weapon_slots" type="Node2D" parent="player_body"]
+[node name="weapon_slots" type="Node2D" parent="body"]
 script = ExtResource( 9 )
 weapon_slot_scene = ExtResource( 10 )
 
@@ -71,5 +73,5 @@ script = ExtResource( 8 )
 
 [node name="health_agent" type="Node" parent="."]
 script = ExtResource( 12 )
-
-[connection signal="area_entered" from="player_body/player_hurtbox" to="health_agent" method="_on_player_hurtbox_area_entered"]
+max_health = 4
+current_health = 4

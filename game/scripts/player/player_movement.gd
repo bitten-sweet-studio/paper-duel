@@ -44,3 +44,6 @@ func get_movement_input():
 
 	if Input.is_action_pressed(_input_definition.up_input):
 		velocity.y = -1
+
+func on_hit(damage: float):
+	_player.health_agent.on_hit(damage)

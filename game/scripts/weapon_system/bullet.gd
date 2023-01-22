@@ -30,7 +30,13 @@ func custom_update(delta: float):
 
 	var collision: KinematicCollision2D = move_and_collide(movement)
 	if collision:
-		direction = direction.bounce(collision.normal)
+		handle_collision(collision)
+
+
+func handle_collision(collision: KinematicCollision2D):
+	direction = direction.bounce(collision.normal)
+	if collision.collider.has_method("on_hit"):
+		collision.collider.on_hit(weapon.definition.damage)
 
 
 func update_definition(delta: float):
