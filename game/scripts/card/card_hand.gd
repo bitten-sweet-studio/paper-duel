@@ -25,6 +25,8 @@ func _ready():
 
 
 func _process(delta: float):
+	if !has_cards():
+		return
 	organize_cards()
 
 
@@ -111,7 +113,7 @@ func has_cards():
 
 
 func remove_card(card):
-	$card.remove_child(card)
+	$cards.remove_child(card)
 
 
 func destroy_card(card):

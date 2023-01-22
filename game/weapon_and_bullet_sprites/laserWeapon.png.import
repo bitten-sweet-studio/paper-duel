@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/laserWeapon.png-43b09a0d8758c3cfa96ab0736fb26866.image"
+
+[deps]
+
+source_file="res://weapon_and_bullet_sprites/laserWeapon.png"
+dest_files=[ "res://.import/laserWeapon.png-43b09a0d8758c3cfa96ab0736fb26866.image" ]
+
+[params]
+

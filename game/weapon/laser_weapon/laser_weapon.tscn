@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/weapon_system/weapon_body.gd" type="Script" id=1]
+[ext_resource path="res://weapon_and_bullet_sprites/laserWeapon.png" type="Texture" id=2]
+
+[node name="laser_weapon" type="Node2D"]
+script = ExtResource( 1 )
+tip_path = NodePath("tip")
+
+[node name="sprite" type="Sprite" parent="."]
+position = Vector2( 45, -2 )
+scale = Vector2( 0.101003, 0.101003 )
+texture = ExtResource( 2 )
+
+[node name="tip" type="Position2D" parent="."]
+position = Vector2( 82, -3 )

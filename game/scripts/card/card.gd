@@ -22,7 +22,7 @@ func setup(p_weapon_definition):
 
 
 func _ready():
-	sprite.texture = weapon_definition.icon
+	sprite.texture.image = weapon_definition.icon
 	name_label.text = weapon_definition.name
 	cost_label.text = str(weapon_definition.cost)
 
