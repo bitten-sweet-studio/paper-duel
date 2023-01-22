@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://arenas/arena.tscn" type="PackedScene" id=1]
 [ext_resource path="res://font/Street-Postah.otf" type="DynamicFontData" id=2]
@@ -16,6 +16,8 @@
 [ext_resource path="res://player/right_player_health_changed_event.tres" type="Resource" id=14]
 [ext_resource path="res://player/right_player_currency_changed_event.tres" type="Resource" id=15]
 [ext_resource path="res://player/left_player_currency_changed_event.tres" type="Resource" id=16]
+[ext_resource path="res://player/right_player_points_changed_event.tres" type="Resource" id=17]
+[ext_resource path="res://player/left_player_points_changed_event.tres" type="Resource" id=18]
 
 [sub_resource type="DynamicFont" id=1]
 size = 100
@@ -141,6 +143,34 @@ valign = 1
 script = ExtResource( 3 )
 event = ExtResource( 14 )
 
+[node name="points_right" type="Label" parent="labels"]
+margin_left = 1235.0
+margin_top = 26.0
+margin_right = 1611.0
+margin_bottom = 166.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_colors/font_color = Color( 0.929412, 0.929412, 0.929412, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Points: 0"
+align = 1
+valign = 1
+script = ExtResource( 3 )
+event = ExtResource( 17 )
+
+[node name="points_left" type="Label" parent="labels"]
+margin_left = 495.0
+margin_top = 32.0
+margin_right = 871.0
+margin_bottom = 172.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_colors/font_color = Color( 0.929412, 0.929412, 0.929412, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Points: 0"
+align = 1
+valign = 1
+script = ExtResource( 3 )
+event = ExtResource( 18 )
+
 [node name="players" type="Node2D" parent="."]
 script = ExtResource( 9 )
 
@@ -153,6 +183,7 @@ input_definition = ExtResource( 8 )
 _card_hand_path = NodePath("../../cards/card_hand_left")
 health_changed_event = ExtResource( 4 )
 currency_changed_event = ExtResource( 16 )
+points_changed_event = ExtResource( 18 )
 
 [node name="player_right" parent="players" instance=ExtResource( 5 )]
 position = Vector2( 1309, 542 )
@@ -163,6 +194,7 @@ input_definition = ExtResource( 7 )
 _card_hand_path = NodePath("../../cards/card_hand_right")
 health_changed_event = ExtResource( 14 )
 currency_changed_event = ExtResource( 15 )
+points_changed_event = ExtResource( 17 )
 
 [connection signal="timeout" from="match/prep_state/prep_timer" to="match/prep_state" method="_on_prep_timer_timeout"]
 [connection signal="timeout" from="match/fighting_state/fighting_timer" to="match/fighting_state" method="_on_fight_timer_timeout"]

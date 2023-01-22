@@ -8,8 +8,10 @@
 script = ExtResource( 1 )
 body_scene = ExtResource( 2 )
 traits = [  ]
+damage = 1.0
 cost = 0
 slots_needed = 2
+bounces_left = 1
 fire_rate_per_second = 0.5
 spread_angle_range = Vector2( 0, 0 )
 bullet_base_speed = 100.0

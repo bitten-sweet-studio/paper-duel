@@ -11,14 +11,16 @@ export var _weapon_slot_manager_path: NodePath = "player_body/weapon_slots"
 export var _state_machine_path: NodePath = "state_machine"
 export var _currency_agent_path: NodePath = "currency_agent"
 export var _health_agent_path: NodePath = "health_agent"
-export var weapon_slot: PackedScene
+export var _points_agent_path: NodePath = "points_agent"
 export var _weapon_slot_count: int
 export var health_changed_event: Resource
 export var currency_changed_event: Resource
+export var points_changed_event: Resource
 
 onready var weapon_slot_manager = get_node(_weapon_slot_manager_path)
 onready var weapon_user: WeaponUser = get_node(_weapon_user_path)
 onready var card_hand = get_node(_card_hand_path)
+onready var points_agent = get_node(_points_agent_path)
 onready var movement = get_node(_movement_path)
 onready var _state_machine = get_node(_state_machine_path)
 onready var currency_agent = get_node(_currency_agent_path)
@@ -32,3 +34,4 @@ func _ready():
 	health_agent.setup(self)
 	currency_agent.setup(self)
 	card_hand.setup(self)
+	points_agent.setup(self)
