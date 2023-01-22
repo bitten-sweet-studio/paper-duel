@@ -37,6 +37,8 @@ func handle_input():
 
 func handle_interact_input():
 	var card: Card = _player.card_hand.get_current_card()
+	if card == null:
+		return
 	var weapon_cost = get_weapon_cost(card.weapon_definition)
 
 	if !_player.currency_agent.can_afford(weapon_cost):

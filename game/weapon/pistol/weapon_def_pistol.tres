@@ -1,0 +1,27 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://scripts/weapon_system/weapon_definition.gd" type="Script" id=1]
+[ext_resource path="res://weapon/pistol/pistol.tscn" type="PackedScene" id=2]
+[ext_resource path="res://bullet/bullet_def_small.tres" type="Resource" id=3]
+[ext_resource path="res://util/textures/godot_icon.png" type="Texture" id=4]
+
+[resource]
+script = ExtResource( 1 )
+name = "AK-47"
+body_scene = ExtResource( 2 )
+icon = ExtResource( 4 )
+traits = [  ]
+damage = 1.0
+cost = 1
+slots_needed = 1
+bounces_left = 1
+fire_rate_per_second = 0.2
+spread_angle_range = Vector2( 5, 5 )
+bullet_base_speed = 400.0
+bullet_raw_acceleration_per_update = 0.0
+bullet_acceleration_multiplier_per_update = 0.998
+bullets_per_burst_range = Vector2( 1, 1 )
+burst_fire_rate_per_second = 0.1
+bullets_definition = [ ExtResource( 3 ) ]
+bullets_per_shot_range = Vector2( 1, 1 )
+bullets_spread_range = Vector2( 0, 0 )

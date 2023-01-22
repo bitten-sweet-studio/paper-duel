@@ -39,6 +39,8 @@ func set_hover_state_by_index(index: int, value: bool):
 
 
 func get_card_by_index(index: int):
+	if !has_cards():
+		return null
 	index = wrapi(index, 0, get_child_count())
 	var result: Card = get_child(index)
 	return result
