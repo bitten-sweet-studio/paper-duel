@@ -57,7 +57,7 @@ label_path = NodePath("../../labels/time_label")
 timer_path = NodePath("fighting_timer")
 
 [node name="fighting_timer" type="Timer" parent="match/fighting_state"]
-wait_time = 5.0
+wait_time = 15.0
 one_shot = true
 script = ExtResource( 12 )
 key = "fighting_timer"
@@ -103,9 +103,9 @@ E (Buy Card)"
 valign = 1
 
 [node name="tutorial_label_right" type="Label" parent="labels"]
-margin_left = 1498.0
+margin_left = 1441.0
 margin_top = 49.0
-margin_right = 2388.0
+margin_right = 2331.0
 margin_bottom = 343.0
 rect_scale = Vector2( 0.5, 0.5 )
 custom_colors/font_color = Color( 0.929412, 0.929412, 0.929412, 1 )

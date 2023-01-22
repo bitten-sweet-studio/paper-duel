@@ -99,11 +99,9 @@ func get_card_by_index(index: int):
 	var result = $cards.get_child(index)
 	return result
 
-
 func get_current_card():
 	var result = get_card_by_index(_current_hovered_card_index)
 	return result
-
 
 func has_cards():
 	return get_cards_count() > 0
