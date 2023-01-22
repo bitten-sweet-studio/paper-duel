@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=5 format=2]
 
 [ext_resource path="res://scripts/weapon_system/weapon_definition.gd" type="Script" id=1]
-[ext_resource path="res://weapon_and_bullet_sprites/laserWeapon.png" type="Texture" id=2]
+[ext_resource path="res://weapon_and_bullet_sprites/laserWeapon.png" type="Image" id=2]
 [ext_resource path="res://bullet/bullet_def_medium.tres" type="Resource" id=3]
 [ext_resource path="res://weapon/laser_weapon/laser_weapon.tscn" type="PackedScene" id=4]
 

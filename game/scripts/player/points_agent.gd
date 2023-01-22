@@ -1,6 +1,6 @@
 extends Node
 
-var max_points: int = 3
+var max_points: int = 99999
 var current_points: int = 0
 var _player
 
@@ -27,7 +27,7 @@ func set_points(points: int):
 	emit_points_changed_event()
 
 func emit_points_changed_event():
-	var result: String = "Points: " + str(current_points) + "/" + str(max_points)
+	var result: String = "Points: " + str(current_points)
 	_player.points_changed_event.emit(result)
 
 

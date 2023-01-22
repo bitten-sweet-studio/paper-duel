@@ -146,10 +146,10 @@ script = ExtResource( 3 )
 event = ExtResource( 14 )
 
 [node name="points_right" type="Label" parent="labels"]
-margin_left = 1235.0
-margin_top = 26.0
-margin_right = 1611.0
-margin_bottom = 166.0
+margin_left = 501.0
+margin_top = 8.0
+margin_right = 890.0
+margin_bottom = 148.0
 rect_scale = Vector2( 0.5, 0.5 )
 custom_colors/font_color = Color( 0.929412, 0.929412, 0.929412, 1 )
 custom_fonts/font = SubResource( 1 )
@@ -160,10 +160,10 @@ script = ExtResource( 3 )
 event = ExtResource( 17 )
 
 [node name="points_left" type="Label" parent="labels"]
-margin_left = 495.0
-margin_top = 32.0
-margin_right = 871.0
-margin_bottom = 172.0
+margin_left = 1244.0
+margin_top = 20.0
+margin_right = 1633.0
+margin_bottom = 160.0
 rect_scale = Vector2( 0.5, 0.5 )
 custom_colors/font_color = Color( 0.929412, 0.929412, 0.929412, 1 )
 custom_fonts/font = SubResource( 1 )

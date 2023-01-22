@@ -5,6 +5,7 @@ export var current_health: int = 5
 export var max_health_increase_per_turn: int = 0
 
 var _player
+var is_dead: bool 
 
 func setup(player):
 	_player = player
@@ -20,6 +21,9 @@ func lose_health(damage: int = 1):
 
 
 func handle_death():
+	if !is_dead:
+		_player.points_agent.increase_points()
+	is_dead = true
 	emit_died_event()
 
 
@@ -35,12 +39,16 @@ func set_health(health: int):
 
 
 func maximize_health():
+	is_dead = false
 	set_health(max_health)
-
 
 func emit_died_event():
 	_player.health_changed_event.emit("Died!")
 	_player.died_event.emit(1)
+
+
+
+
 
 func emit_health_changed_event():
 	var result: String = "H: " + str(current_health) + "/" + str(max_health)

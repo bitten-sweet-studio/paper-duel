@@ -30,7 +30,6 @@ onready var health_agent = get_node(_health_agent_path)
 
 var manager
 
-
 func setup(p_manager):
 	manager = p_manager
 	movement.setup(self)
