@@ -1,21 +1,21 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/card/card_hand.gd" type="Script" id=1]
 [ext_resource path="res://card/card.tscn" type="PackedScene" id=2]
+[ext_resource path="res://weapon/ak_47/weapon_def_ak_47.tres" type="Resource" id=3]
+[ext_resource path="res://weapon/pistol/weapon_def_pistol.tres" type="Resource" id=4]
 
 [node name="card_hand" type="Node2D"]
 script = ExtResource( 1 )
+cards_begin_path = NodePath("begin")
+cards_end_path = NodePath("end")
+card_template_scene = ExtResource( 2 )
+possible_weapon_definition = [ ExtResource( 3 ), ExtResource( 4 ) ]
 
-[node name="card1" parent="." instance=ExtResource( 2 )]
+[node name="cards" type="Node2D" parent="."]
 
-[node name="card2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 0, 200 )
+[node name="begin" type="Position2D" parent="."]
+position = Vector2( -400, 0 )
 
-[node name="card3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 0, 397 )
-
-[node name="card4" parent="." instance=ExtResource( 2 )]
-position = Vector2( 0, 600 )
-
-[node name="card5" parent="." instance=ExtResource( 2 )]
-position = Vector2( 0, 802 )
+[node name="end" type="Position2D" parent="."]
+position = Vector2( 400, 0 )

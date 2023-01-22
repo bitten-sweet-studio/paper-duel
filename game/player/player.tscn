@@ -79,3 +79,5 @@ current_health = 4
 
 [node name="points_agent" type="Node" parent="."]
 script = ExtResource( 13 )
+
+[node name="car_user" type="Node" parent="."]

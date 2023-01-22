@@ -12,9 +12,13 @@ export var fire_rate_widget_path: NodePath
 onready var border: CanvasItem = get_node(border_path)
 onready var sprite: Sprite = get_node(sprite_path)
 onready var name_label: Label = get_node(name_label_path)
-onready var cost_label: Label = get_node(cost_label_path) 
+onready var cost_label: Label = get_node(cost_label_path)
 onready var speed_widget = get_node(speed_widget_path)
 onready var fire_rate_widget = get_node(fire_rate_widget_path)
+
+
+func setup(p_weapon_definition):
+	weapon_definition = p_weapon_definition
 
 
 func _ready():

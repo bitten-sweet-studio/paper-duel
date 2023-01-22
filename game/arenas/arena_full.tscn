@@ -18,8 +18,8 @@
 [ext_resource path="res://player/left_player_currency_changed_event.tres" type="Resource" id=16]
 [ext_resource path="res://player/right_player_points_changed_event.tres" type="Resource" id=17]
 [ext_resource path="res://player/left_player_points_changed_event.tres" type="Resource" id=18]
-[ext_resource path="res://player/right_player_died_event.tres" type="Resource" id=19]
-[ext_resource path="res://player/left_player_died_event.tres" type="Resource" id=20]
+[ext_resource path="res://player/left_player_died_event.tres" type="Resource" id=19]
+[ext_resource path="res://player/right_player_died_event.tres" type="Resource" id=20]
 
 [sub_resource type="DynamicFont" id=1]
 size = 100
@@ -68,10 +68,10 @@ path = NodePath(".")
 [node name="cards" type="Node2D" parent="."]
 
 [node name="card_hand_right" parent="cards" instance=ExtResource( 6 )]
-position = Vector2( 1779, 141 )
+position = Vector2( 1507, 935 )
 
 [node name="card_hand_left" parent="cards" instance=ExtResource( 6 )]
-position = Vector2( 167, 141 )
+position = Vector2( 469, 938 )
 
 [node name="labels" type="Control" parent="."]
 margin_right = 40.0
@@ -186,7 +186,7 @@ _card_hand_path = NodePath("../../cards/card_hand_left")
 health_changed_event = ExtResource( 4 )
 currency_changed_event = ExtResource( 16 )
 points_changed_event = ExtResource( 18 )
-died_event = ExtResource( 20 )
+died_event = ExtResource( 19 )
 
 [node name="player_right" parent="players" instance=ExtResource( 5 )]
 position = Vector2( 1309, 542 )
@@ -198,7 +198,7 @@ _card_hand_path = NodePath("../../cards/card_hand_right")
 health_changed_event = ExtResource( 14 )
 currency_changed_event = ExtResource( 15 )
 points_changed_event = ExtResource( 17 )
-died_event = ExtResource( 19 )
+died_event = ExtResource( 20 )
 
 [connection signal="timeout" from="match/prep_state/prep_timer" to="match/prep_state" method="_on_prep_timer_timeout"]
 [connection signal="timeout" from="match/fighting_state/fighting_timer" to="match/fighting_state" method="_on_fight_timer_timeout"]

@@ -12,7 +12,6 @@ export var _state_machine_path: NodePath = "state_machine"
 export var _currency_agent_path: NodePath = "currency_agent"
 export var _health_agent_path: NodePath = "health_agent"
 export var _points_agent_path: NodePath = "points_agent"
-
 export var _weapon_slot_count: int
 export var health_changed_event: Resource
 export var currency_changed_event: Resource
@@ -29,8 +28,11 @@ onready var _state_machine = get_node(_state_machine_path)
 onready var currency_agent = get_node(_currency_agent_path)
 onready var health_agent = get_node(_health_agent_path)
 
+var manager
 
-func _ready():
+
+func setup(p_manager):
+	manager = p_manager
 	movement.setup(self)
 	_state_machine.setup()
 	weapon_slot_manager.instantiate_weapon_slots()
