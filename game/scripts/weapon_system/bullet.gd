@@ -6,6 +6,7 @@ export var definition: Resource
 var direction: Vector2
 var speed: float
 var weapon: Weapon
+var bounces_left: int
 
 
 func _init(p_definition, p_weapon):
@@ -16,6 +17,7 @@ func _init(p_definition, p_weapon):
 	add_child(body)
 
 	speed = weapon.definition.bullet_base_speed
+	bounces_left = weapon.definition.bounces_left
 	set_collision_layers()
 
 
@@ -34,9 +36,25 @@ func custom_update(delta: float):
 
 
 func handle_collision(collision: KinematicCollision2D):
-	direction = direction.bounce(collision.normal)
-	if collision.collider.has_method("on_hit"):
-		collision.collider.on_hit(weapon.definition.damage)
+	try_deal_damage(collision.collider)
+
+	if has_bounces_left():
+		direction = direction.bounce(collision.normal)
+		bounces_left -= 1
+	else:
+		destroy()
+
+
+func try_deal_damage(target):
+	if !target.has_method("on_hit"):
+		return
+
+	target.on_hit(weapon.definition.damage)
+
+
+func has_bounces_left():
+	var result: bool = bounces_left >= 1
+	return result
 
 
 func update_definition(delta: float):
