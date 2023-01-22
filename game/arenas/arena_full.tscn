@@ -68,20 +68,20 @@ path = NodePath(".")
 [node name="cards" type="Node2D" parent="."]
 
 [node name="card_hand_right" parent="cards" instance=ExtResource( 6 )]
-position = Vector2( 1507, 935 )
+position = Vector2( 1571, 1003 )
 
 [node name="card_hand_left" parent="cards" instance=ExtResource( 6 )]
-position = Vector2( 469, 938 )
+position = Vector2( 515, 1002 )
 
 [node name="labels" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="time_label" type="Label" parent="labels"]
-margin_left = 837.0
-margin_top = 95.0
-margin_right = 1213.0
-margin_bottom = 235.0
+margin_left = 873.0
+margin_top = 99.0
+margin_right = 1249.0
+margin_bottom = 239.0
 rect_scale = Vector2( 0.5, 0.5 )
 custom_colors/font_color = Color( 0.929412, 0.929412, 0.929412, 1 )
 custom_fonts/font = SubResource( 3 )
@@ -89,11 +89,38 @@ text = "00:30"
 align = 1
 valign = 1
 
+[node name="tutorial_label_left" type="Label" parent="labels"]
+margin_left = 10.0
+margin_top = 48.0
+margin_right = 804.0
+margin_bottom = 342.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_colors/font_color = Color( 0.929412, 0.929412, 0.929412, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "W,A,S,D (Move)
+A,D (Select CARD)
+E (Buy Card)"
+valign = 1
+
+[node name="tutorial_label_right" type="Label" parent="labels"]
+margin_left = 1498.0
+margin_top = 49.0
+margin_right = 2388.0
+margin_bottom = 343.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_colors/font_color = Color( 0.929412, 0.929412, 0.929412, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Arrows (Move)
+<-, -> (Select CARD)
+N (Buy Card)"
+align = 2
+valign = 1
+
 [node name="currency_left" type="Label" parent="labels"]
-margin_left = 496.0
-margin_top = 170.0
-margin_right = 872.0
-margin_bottom = 310.0
+margin_left = 499.0
+margin_top = 117.0
+margin_right = 875.0
+margin_bottom = 257.0
 rect_scale = Vector2( 0.5, 0.5 )
 custom_colors/font_color = Color( 0.929412, 0.929412, 0.929412, 1 )
 custom_fonts/font = SubResource( 3 )
@@ -104,10 +131,10 @@ script = ExtResource( 3 )
 event = ExtResource( 16 )
 
 [node name="currency_right" type="Label" parent="labels"]
-margin_left = 1231.0
-margin_top = 154.0
-margin_right = 1607.0
-margin_bottom = 294.0
+margin_left = 1279.0
+margin_top = 118.0
+margin_right = 1475.0
+margin_bottom = 258.0
 rect_scale = Vector2( 0.5, 0.5 )
 custom_colors/font_color = Color( 0.929412, 0.929412, 0.929412, 1 )
 custom_fonts/font = SubResource( 3 )
@@ -118,10 +145,10 @@ script = ExtResource( 3 )
 event = ExtResource( 15 )
 
 [node name="points_right" type="Label" parent="labels"]
-margin_left = 501.0
-margin_top = 8.0
-margin_right = 890.0
-margin_bottom = 148.0
+margin_left = 494.0
+margin_top = 66.0
+margin_right = 883.0
+margin_bottom = 206.0
 rect_scale = Vector2( 0.5, 0.5 )
 custom_colors/font_color = Color( 0.929412, 0.929412, 0.929412, 1 )
 custom_fonts/font = SubResource( 3 )
@@ -132,10 +159,10 @@ script = ExtResource( 3 )
 event = ExtResource( 17 )
 
 [node name="points_left" type="Label" parent="labels"]
-margin_left = 1244.0
-margin_top = 20.0
-margin_right = 1633.0
-margin_bottom = 160.0
+margin_left = 1234.0
+margin_top = 66.0
+margin_right = 1623.0
+margin_bottom = 206.0
 rect_scale = Vector2( 0.5, 0.5 )
 custom_colors/font_color = Color( 0.929412, 0.929412, 0.929412, 1 )
 custom_fonts/font = SubResource( 3 )

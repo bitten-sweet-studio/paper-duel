@@ -18,9 +18,6 @@ var _player
 func setup(player):
 	_player = player
 	create_initial_cards()
-
-
-func _ready():
 	hover_by_index(_current_hovered_card_index)
 
 

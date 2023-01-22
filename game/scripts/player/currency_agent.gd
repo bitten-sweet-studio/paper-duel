@@ -38,5 +38,5 @@ func can_afford(amount: int):
 
 
 func emit_currency_changed_event():
-	var result: String = "C: " + str(current_currency) + "/" + str(max_currency)
+	var result: String = "$ " + str(current_currency)
 	_player.currency_changed_event.emit(result)
