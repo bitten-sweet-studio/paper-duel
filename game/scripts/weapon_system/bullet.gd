@@ -39,10 +39,15 @@ func handle_collision(collision: KinematicCollision2D):
 	try_deal_damage(collision.collider)
 
 	if has_bounces_left():
-		direction = direction.bounce(collision.normal)
-		bounces_left -= 1
+		bounce(collision)
 	else:
 		destroy()
+
+
+func bounce(collision: KinematicCollision2D):
+	direction = direction.bounce(collision.normal)
+	direction = weapon.add_spread(direction)
+	bounces_left -= 1
 
 
 func try_deal_damage(target):

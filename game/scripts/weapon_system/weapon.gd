@@ -107,11 +107,16 @@ func shoot_bullet():
 
 	bullet.global_position = body.get_tip().global_position
 	var direction: Vector2 = Vector2.RIGHT.rotated(global_rotation)
+	direction = add_spread(direction)
 
+	bullet.direction = direction
+
+func add_spread(direction: Vector2) -> Vector2:
 	var spread_radians_range: Vector2 = Vector2(
 		deg2rad(-definition.spread_angle_range.x), deg2rad(definition.spread_angle_range.y)
 	)
+
 	var spread_radians: float = RangeUtil.random(spread_radians_range)
 	direction = direction.rotated(spread_radians)
 
-	bullet.direction = direction
+	return direction
