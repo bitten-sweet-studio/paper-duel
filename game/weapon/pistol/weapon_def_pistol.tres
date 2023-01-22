@@ -7,7 +7,7 @@
 
 [resource]
 script = ExtResource( 1 )
-name = "AK-47"
+name = "pistol"
 body_scene = ExtResource( 2 )
 icon = ExtResource( 4 )
 traits = [  ]
