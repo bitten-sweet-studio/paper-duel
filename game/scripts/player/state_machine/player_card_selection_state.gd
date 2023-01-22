@@ -36,15 +36,20 @@ func handle_input():
 
 
 func handle_interact_input():
-	var weapon: Weapon = _player.card_hand.select_current_card(_player)
+	var card: Card = _player.card_hand.get_current_card()
+	var weapon_cost = get_weapon_cost(card.weapon_definition)
 
-	if !_player.currency_agent.spend_currency(get_weapon_cost()):
+	if !_player.currency_agent.can_afford(weapon_cost):
 		handle_currency_not_enough()
+		return
+
+	var weapon = _player.weapon_slot_manager.try_start_weapon_attachment(
+		card.weapon_definition, _player
+	)
+	if weapon == null:
+		return
 
 	_player.weapon_user.register_weapon(weapon)
-
-	_player.weapon_slot_manager.start_weapon_attachment(weapon)
-	_player.weapon_slot_manager.attach_to_first_empty_valid_slot()
 
 	_player.card_hand.current_card().queue_free()
 	_state_machine.change_state(PlayerStateMachine.State.WEAPON_ATTACHMENT)
@@ -53,11 +58,12 @@ func handle_interact_input():
 func exit():
 	pass
 
-func get_weapon_cost() -> int:
+
+func get_weapon_cost(weapon_definition: WeaponDefinition) -> int:
 	return 2
-	#return weapon.definition.cost
-	
+	#return weapon_definition.cost
+
+
 func handle_currency_not_enough():
 	#Play animations ( weapon too expensive )
 	print("Currency not enough!")
-	pass

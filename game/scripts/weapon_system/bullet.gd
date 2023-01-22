@@ -40,11 +40,9 @@ func set_collision_layers():
 	self.set_collision_layer_bit(0, false)
 	self.set_collision_layer_bit(3, true)
 
-
 	self.set_collision_mask_bit(0, false)
 	self.set_collision_mask_bit(1, true)
 	self.set_collision_mask_bit(4, true)
-
 
 
 func destroy():

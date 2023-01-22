@@ -32,5 +32,5 @@ func increase_max_health(health: int = 1):
 
 
 func _on_player_hurtbox_area_entered(area):
-	area.get_parent().destroy()
+	#area.get_parent().destroy()
 	lose_health()

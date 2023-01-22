@@ -4,6 +4,7 @@ class_name WeaponDefinition
 export var body_scene: PackedScene
 export var traits := []
 export var cost: int = 1
+export var slots_needed: int = 1
 export var fire_rate_per_second: float = 1
 export var spread_angle_range: Vector2 = Vector2(15, 20)
 export var bullet_base_speed: float = 1
