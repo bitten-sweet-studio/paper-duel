@@ -6,12 +6,14 @@ var _player
 
 func setup(player):
 	_player = player
+	_player.died_event.connect("event_signal",self, "handle_loss")
 
 func handle_victory():
+	set_points(current_points + 1)
 	print(_player.name + "Wins!!!")
 	pass
 
-func handle_loss():
+func handle_loss(amogus):
 	print(_player.name + "Loses!!!")
 	pass
 
@@ -27,3 +29,5 @@ func set_points(points: int):
 func emit_points_changed_event():
 	var result: String = "Points: " + str(current_points) + "/" + str(max_points)
 	_player.points_changed_event.emit(result)
+
+

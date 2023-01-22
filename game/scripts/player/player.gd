@@ -12,10 +12,13 @@ export var _state_machine_path: NodePath = "state_machine"
 export var _currency_agent_path: NodePath = "currency_agent"
 export var _health_agent_path: NodePath = "health_agent"
 export var _points_agent_path: NodePath = "points_agent"
+
 export var _weapon_slot_count: int
 export var health_changed_event: Resource
 export var currency_changed_event: Resource
 export var points_changed_event: Resource
+export var died_event: Resource
+export var other_player_died_event: Resource
 
 onready var weapon_slot_manager = get_node(_weapon_slot_manager_path)
 onready var weapon_user: WeaponUser = get_node(_weapon_user_path)

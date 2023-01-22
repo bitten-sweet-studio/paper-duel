@@ -6,11 +6,9 @@ export var max_health_increase_per_turn: int = 0
 
 var _player
 
-
 func setup(player):
 	_player = player
 	emit_health_changed_event()
-
 
 func lose_health(damage: int = 1):
 	set_health(current_health - damage)
@@ -42,7 +40,7 @@ func maximize_health():
 
 func emit_died_event():
 	_player.health_changed_event.emit("Died!")
-
+	_player.died_event.emit(1)
 
 func emit_health_changed_event():
 	var result: String = "H: " + str(current_health) + "/" + str(max_health)
