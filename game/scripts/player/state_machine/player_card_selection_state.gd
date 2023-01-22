@@ -49,9 +49,9 @@ func handle_interact_input():
 	if weapon == null:
 		return
 
+	_player.currency_agent.spend(weapon_cost)
 	_player.weapon_user.register_weapon(weapon)
-
-	_player.card_hand.current_card().queue_free()
+	_player.card_hand.destroy_current_card()
 	_state_machine.change_state(PlayerStateMachine.State.WEAPON_ATTACHMENT)
 
 
@@ -60,8 +60,7 @@ func exit():
 
 
 func get_weapon_cost(weapon_definition: WeaponDefinition) -> int:
-	return 2
-	#return weapon_definition.cost
+	return weapon_definition.cost
 
 
 func handle_currency_not_enough():

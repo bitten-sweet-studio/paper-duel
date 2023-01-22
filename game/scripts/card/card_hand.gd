@@ -47,9 +47,8 @@ func get_current_card() -> Card:
 	return result
 
 
-func current_card():
-	var card: Card = get_card_by_index(_current_hovered_card_index)
-	return card
+func destroy_current_card():
+	get_card_by_index(_current_hovered_card_index).queue_free()
 
 
 func has_cards():

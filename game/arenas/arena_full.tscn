@@ -69,29 +69,6 @@ position = Vector2( 1779, 141 )
 [node name="card_hand_left" parent="cards" instance=ExtResource( 6 )]
 position = Vector2( 167, 141 )
 
-[node name="players" type="Node2D" parent="."]
-script = ExtResource( 9 )
-
-[node name="player_left" parent="players" instance=ExtResource( 5 )]
-position = Vector2( 646, 542 )
-__meta__ = {
-"_edit_group_": true
-}
-input_definition = ExtResource( 8 )
-_card_hand_path = NodePath("../../cards/card_hand_left")
-health_changed_event = ExtResource( 4 )
-currency_changed_event = ExtResource( 16 )
-
-[node name="player_right" parent="players" instance=ExtResource( 5 )]
-position = Vector2( 1309, 542 )
-__meta__ = {
-"_edit_group_": true
-}
-input_definition = ExtResource( 7 )
-_card_hand_path = NodePath("../../cards/card_hand_right")
-health_changed_event = ExtResource( 14 )
-currency_changed_event = ExtResource( 15 )
-
 [node name="labels" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
@@ -163,6 +140,29 @@ align = 1
 valign = 1
 script = ExtResource( 3 )
 event = ExtResource( 14 )
+
+[node name="players" type="Node2D" parent="."]
+script = ExtResource( 9 )
+
+[node name="player_left" parent="players" instance=ExtResource( 5 )]
+position = Vector2( 646, 542 )
+__meta__ = {
+"_edit_group_": true
+}
+input_definition = ExtResource( 8 )
+_card_hand_path = NodePath("../../cards/card_hand_left")
+health_changed_event = ExtResource( 4 )
+currency_changed_event = ExtResource( 16 )
+
+[node name="player_right" parent="players" instance=ExtResource( 5 )]
+position = Vector2( 1309, 542 )
+__meta__ = {
+"_edit_group_": true
+}
+input_definition = ExtResource( 7 )
+_card_hand_path = NodePath("../../cards/card_hand_right")
+health_changed_event = ExtResource( 14 )
+currency_changed_event = ExtResource( 15 )
 
 [connection signal="timeout" from="match/prep_state/prep_timer" to="match/prep_state" method="_on_prep_timer_timeout"]
 [connection signal="timeout" from="match/fighting_state/fighting_timer" to="match/fighting_state" method="_on_fight_timer_timeout"]
