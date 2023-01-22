@@ -1,12 +1,15 @@
-[gd_resource type="Resource" load_steps=4 format=2]
+[gd_resource type="Resource" load_steps=5 format=2]
 
 [ext_resource path="res://scripts/weapon_system/weapon_definition.gd" type="Script" id=1]
 [ext_resource path="res://weapon/ak_47/ak_47.tscn" type="PackedScene" id=2]
 [ext_resource path="res://bullet/bullet_def_default.tres" type="Resource" id=3]
+[ext_resource path="res://util/textures/weapon.png" type="Texture" id=4]
 
 [resource]
 script = ExtResource( 1 )
+name = "AK-47"
 body_scene = ExtResource( 2 )
+icon = ExtResource( 4 )
 traits = [  ]
 damage = 1.0
 cost = 0

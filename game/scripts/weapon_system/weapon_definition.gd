@@ -1,7 +1,9 @@
 extends Resource
 class_name WeaponDefinition
 
+export var name: String = "Weapon"
 export var body_scene: PackedScene
+export var icon: Texture
 export var traits := []
 export var damage: float = 1.0
 export var cost: int = 1

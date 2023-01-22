@@ -5,8 +5,8 @@
 [ext_resource path="res://weapon/ak_47/weapon_def_ak_47.tres" type="Resource" id=3]
 [ext_resource path="res://card/cleanCard.png" type="Texture" id=4]
 [ext_resource path="res://util/textures/godot_icon.png" type="Texture" id=5]
-[ext_resource path="res://card/cadence_background.tscn" type="PackedScene" id=6]
-[ext_resource path="res://card/speed_background.tscn" type="PackedScene" id=7]
+[ext_resource path="res://card/fire_rate_widget.tscn" type="PackedScene" id=6]
+[ext_resource path="res://card/card_speed_widget.tscn" type="PackedScene" id=7]
 [ext_resource path="res://font/Street-Postah.otf" type="DynamicFontData" id=8]
 
 [sub_resource type="DynamicFont" id=1]
@@ -27,6 +27,11 @@ font_data = ExtResource( 8 )
 script = ExtResource( 2 )
 weapon_definition = ExtResource( 3 )
 border_path = NodePath("card_outline")
+sprite_path = NodePath("gun_sprite")
+name_label_path = NodePath("card_background/gun_name")
+cost_label_path = NodePath("card_background/gun_price")
+speed_widget_path = NodePath("card_speed_widget")
+fire_rate_widget_path = NodePath("fire_rate_widget")
 
 [node name="card_outline" type="Polygon2D" parent="."]
 visible = false
@@ -64,12 +69,11 @@ custom_fonts/font = SubResource( 2 )
 text = "1"
 
 [node name="gun_sprite" type="Sprite" parent="."]
-modulate = Color( 0, 1, 1, 1 )
 position = Vector2( -1, -54 )
 texture = ExtResource( 5 )
 
-[node name="speed_background" parent="." instance=ExtResource( 7 )]
+[node name="card_speed_widget" parent="." instance=ExtResource( 7 )]
 position = Vector2( -38, 72 )
 
-[node name="cadence_background" parent="." instance=ExtResource( 6 )]
+[node name="fire_rate_widget" parent="." instance=ExtResource( 6 )]
 position = Vector2( 32, 73 )
