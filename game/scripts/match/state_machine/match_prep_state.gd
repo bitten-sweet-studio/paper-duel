@@ -16,7 +16,6 @@ func enter(p_state_machine):
 	timer.start()
 
 
-
 func update(_delta: float):
 	label.text = "Prep: " + str(ceil(timer.time_left))
 

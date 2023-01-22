@@ -32,6 +32,7 @@ func custom_update(delta: float):
 	if collision:
 		direction = direction.bounce(collision.normal)
 
+
 func update_definition(delta: float):
 	definition.custom_update(self, delta)
 
