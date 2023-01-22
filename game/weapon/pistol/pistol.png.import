@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/pistol.png-5bf2aa257c3cfc6ae164d6d928aa5832.image"
+
+[deps]
+
+source_file="res://weapon/pistol/pistol.png"
+dest_files=[ "res://.import/pistol.png-5bf2aa257c3cfc6ae164d6d928aa5832.image" ]
+
+[params]
+

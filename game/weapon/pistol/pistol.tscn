@@ -1,7 +1,8 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://util/textures/weapon.png" type="Texture" id=1]
 [ext_resource path="res://scripts/weapon_system/weapon_body.gd" type="Script" id=2]
+
+[sub_resource type="ImageTexture" id=1]
 
 [node name="pistol" type="Node2D"]
 script = ExtResource( 2 )
@@ -11,7 +12,7 @@ tip_path = NodePath("tip")
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 36.75, 9.75 )
 scale = Vector2( 0.4275, 0.6075 )
-texture = ExtResource( 1 )
+texture = SubResource( 1 )
 
 [node name="tip" type="Position2D" parent="."]
 position = Vector2( 74.5, -2.5 )

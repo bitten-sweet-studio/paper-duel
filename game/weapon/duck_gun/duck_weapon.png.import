@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/duck_weapon.png-d32389f363504cf9f817bc606f239422.image"
+
+[deps]
+
+source_file="res://weapon/duck_gun/duck_weapon.png"
+dest_files=[ "res://.import/duck_weapon.png-d32389f363504cf9f817bc606f239422.image" ]
+
+[params]
+

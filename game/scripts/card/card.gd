@@ -22,7 +22,9 @@ func setup(p_weapon_definition):
 
 
 func _ready():
-	sprite.texture.image = weapon_definition.icon
+	sprite.texture = ImageTexture.new()
+	sprite.texture.create_from_image(weapon_definition.icon)
+	sprite.texture.set_size_override(Vector2(200,170))
 	name_label.text = weapon_definition.name
 	cost_label.text = str(weapon_definition.cost)
 

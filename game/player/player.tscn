@@ -1,7 +1,7 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scripts/player/player.gd" type="Script" id=1]
-[ext_resource path="res://util/textures/godot_icon.png" type="Texture" id=2]
+[ext_resource path="res://card/Cadence.png" type="Texture" id=2]
 [ext_resource path="res://scripts/player/player_movement.gd" type="Script" id=3]
 [ext_resource path="res://scripts/player/state_machine/player_weapon_attachment_state.gd" type="Script" id=4]
 [ext_resource path="res://scripts/player/state_machine/player_card_selection_state.gd" type="Script" id=5]
@@ -13,12 +13,21 @@
 [ext_resource path="res://scripts/weapon_system/weapon_user.gd" type="Script" id=11]
 [ext_resource path="res://scripts/player/health_agent.gd" type="Script" id=12]
 [ext_resource path="res://scripts/player/points_agent.gd" type="Script" id=13]
+[ext_resource path="res://font/Street-Postah.otf" type="DynamicFontData" id=14]
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 32, 32 )
+[sub_resource type="CircleShape2D" id=1]
+radius = 36.0555
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 33, 33 )
+[sub_resource type="CircleShape2D" id=2]
+radius = 40.1123
+
+[sub_resource type="DynamicFont" id=3]
+size = 38
+outline_size = 2
+outline_color = Color( 0.313726, 0.313726, 0.313726, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 14 )
 
 [node name="player" type="Node2D"]
 script = ExtResource( 1 )
@@ -33,21 +42,33 @@ collision_mask = 88
 script = ExtResource( 3 )
 
 [node name="player_sprite" type="Sprite" parent="body"]
+modulate = Color( 0.658824, 0.658824, 0.658824, 1 )
+position = Vector2( 1, 0 )
+scale = Vector2( 0.167969, 0.167969 )
 texture = ExtResource( 2 )
 
 [node name="rigid_shape" type="CollisionShape2D" parent="body"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="player_hurtbox" type="Area2D" parent="body"]
 collision_layer = 2
 collision_mask = 8
 
 [node name="player_hurtbox_collider" type="CollisionShape2D" parent="body/player_hurtbox"]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="weapon_slots" type="Node2D" parent="body"]
 script = ExtResource( 9 )
 weapon_slot_scene = ExtResource( 10 )
+
+[node name="hp" type="Label" parent="body"]
+margin_left = -31.0
+margin_top = -17.0
+margin_right = 30.0
+margin_bottom = 20.0
+custom_colors/font_color = Color( 0.956863, 0.956863, 0.956863, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "1/1"
 
 [node name="state_machine" type="Node" parent="."]
 script = ExtResource( 7 )
@@ -76,6 +97,7 @@ script = ExtResource( 8 )
 script = ExtResource( 12 )
 max_health = 4
 current_health = 4
+label_path = NodePath("../body/hp")
 
 [node name="points_agent" type="Node" parent="."]
 script = ExtResource( 13 )

@@ -3,6 +3,9 @@ extends Node
 export var max_health: int = 5
 export var current_health: int = 5
 export var max_health_increase_per_turn: int = 0
+export var label_path: NodePath
+
+onready var label: Label = get_node(label_path)
 
 var _player
 var is_dead: bool 
@@ -51,8 +54,9 @@ func emit_died_event():
 
 
 func emit_health_changed_event():
-	var result: String = "H: " + str(current_health) + "/" + str(max_health)
+	var result: String = str(current_health) + "/" + str(max_health)
 	_player.health_changed_event.emit(result)
+	label.text = result
 
 
 func increase_max_health():

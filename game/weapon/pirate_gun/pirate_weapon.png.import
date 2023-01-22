@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/pirate_weapon.png-a4af529ef72dc2b169600016255ffe00.image"
+
+[deps]
+
+source_file="res://weapon/pirate_gun/pirate_weapon.png"
+dest_files=[ "res://.import/pirate_weapon.png-a4af529ef72dc2b169600016255ffe00.image" ]
+
+[params]
+

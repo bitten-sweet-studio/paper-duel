@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/laser_weapon.png-aa75a88bc7b5b95895b0b3ff67c58f85.image"
+
+[deps]
+
+source_file="res://weapon/laser_weapon/laser_weapon.png"
+dest_files=[ "res://.import/laser_weapon.png-aa75a88bc7b5b95895b0b3ff67c58f85.image" ]
+
+[params]
+

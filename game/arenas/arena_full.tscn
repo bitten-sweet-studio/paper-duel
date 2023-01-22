@@ -21,7 +21,7 @@
 [ext_resource path="res://player/left_player_died_event.tres" type="Resource" id=19]
 [ext_resource path="res://player/right_player_died_event.tres" type="Resource" id=20]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=3]
 size = 100
 outline_size = 7
 outline_color = Color( 0.313726, 0.313726, 0.313726, 1 )
@@ -84,24 +84,10 @@ margin_right = 1213.0
 margin_bottom = 235.0
 rect_scale = Vector2( 0.5, 0.5 )
 custom_colors/font_color = Color( 0.929412, 0.929412, 0.929412, 1 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 text = "00:30"
 align = 1
 valign = 1
-
-[node name="health_left" type="Label" parent="labels"]
-margin_left = 492.0
-margin_top = 95.0
-margin_right = 868.0
-margin_bottom = 235.0
-rect_scale = Vector2( 0.5, 0.5 )
-custom_colors/font_color = Color( 0.929412, 0.929412, 0.929412, 1 )
-custom_fonts/font = SubResource( 1 )
-text = "5/5"
-align = 1
-valign = 1
-script = ExtResource( 3 )
-event = ExtResource( 4 )
 
 [node name="currency_left" type="Label" parent="labels"]
 margin_left = 496.0
@@ -110,7 +96,7 @@ margin_right = 872.0
 margin_bottom = 310.0
 rect_scale = Vector2( 0.5, 0.5 )
 custom_colors/font_color = Color( 0.929412, 0.929412, 0.929412, 1 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 text = "2"
 align = 1
 valign = 1
@@ -124,26 +110,12 @@ margin_right = 1607.0
 margin_bottom = 294.0
 rect_scale = Vector2( 0.5, 0.5 )
 custom_colors/font_color = Color( 0.929412, 0.929412, 0.929412, 1 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 text = "2"
 align = 1
 valign = 1
 script = ExtResource( 3 )
 event = ExtResource( 15 )
-
-[node name="health_right" type="Label" parent="labels"]
-margin_left = 1238.0
-margin_top = 93.0
-margin_right = 1614.0
-margin_bottom = 233.0
-rect_scale = Vector2( 0.5, 0.5 )
-custom_colors/font_color = Color( 0.929412, 0.929412, 0.929412, 1 )
-custom_fonts/font = SubResource( 1 )
-text = "5/5"
-align = 1
-valign = 1
-script = ExtResource( 3 )
-event = ExtResource( 14 )
 
 [node name="points_right" type="Label" parent="labels"]
 margin_left = 501.0
@@ -152,7 +124,7 @@ margin_right = 890.0
 margin_bottom = 148.0
 rect_scale = Vector2( 0.5, 0.5 )
 custom_colors/font_color = Color( 0.929412, 0.929412, 0.929412, 1 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 text = "Points: 0"
 align = 1
 valign = 1
@@ -166,7 +138,7 @@ margin_right = 1633.0
 margin_bottom = 160.0
 rect_scale = Vector2( 0.5, 0.5 )
 custom_colors/font_color = Color( 0.929412, 0.929412, 0.929412, 1 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 text = "Points: 0"
 align = 1
 valign = 1

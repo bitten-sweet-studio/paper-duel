@@ -1,0 +1,27 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://scripts/weapon_system/weapon_definition.gd" type="Script" id=1]
+[ext_resource path="res://weapon/bazooka/bazooka_bullet_def.tres" type="Resource" id=2]
+[ext_resource path="res://weapon/bazooka/bazooka.tscn" type="PackedScene" id=3]
+[ext_resource path="res://weapon/bazooka/bazooka_weapon.png" type="Image" id=4]
+
+[resource]
+script = ExtResource( 1 )
+name = "Bazooka"
+body_scene = ExtResource( 3 )
+icon = ExtResource( 4 )
+traits = [  ]
+damage = 1.0
+cost = 0
+slots_needed = 2
+bounces_left = 1
+fire_rate_per_second = 0.3
+spread_angle_range = Vector2( 3, 3 )
+bullet_base_speed = 600.0
+bullet_raw_acceleration_per_update = 0.0
+bullet_acceleration_multiplier_per_update = 1.0
+bullets_per_burst_range = Vector2( 3, 3 )
+burst_fire_rate_per_second = 24.0
+bullets_definition = [ ExtResource( 2 ) ]
+bullets_per_shot_range = Vector2( 1, 1 )
+bullets_spread_range = Vector2( 0, 0 )
