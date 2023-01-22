@@ -28,19 +28,23 @@ func custom_update(delta: float):
 
 	var movement: Vector2 = speed * direction * delta
 
-	move_and_slide(movement)
-	#get_slide_collision()
-
+	var collision: KinematicCollision2D = move_and_collide(movement)
+	if collision:
+		direction = direction.bounce(collision.normal)
 
 func update_definition(delta: float):
 	definition.custom_update(self, delta)
 
 
 func set_collision_layers():
-	self.set_collision_layer_bit(3, true)
 	self.set_collision_layer_bit(0, false)
-	self.set_collision_mask_bit(1, true)
+	self.set_collision_layer_bit(3, true)
+
+
 	self.set_collision_mask_bit(0, false)
+	self.set_collision_mask_bit(1, true)
+	self.set_collision_mask_bit(4, true)
+
 
 
 func destroy():

@@ -46,58 +46,43 @@ patch_margin_bottom = 380
 [node name="walls" type="Node2D" parent="."]
 
 [node name="corner_wall_left_01" parent="walls" instance=ExtResource( 4 )]
-position = Vector2( 327, 258 )
-rotation = 0.785398
+position = Vector2( 229, 146 )
+rotation = -0.785398
 scale = Vector2( 1.626, 0.168 )
-collision_layer = 16
-collision_mask = 2
 
 [node name="corner_wall_left_02" parent="walls" instance=ExtResource( 4 )]
-position = Vector2( 323, 831 )
-rotation = -0.785398
-scale = Vector2( 1.626, 0.168 )
-collision_layer = 16
-collision_mask = 2
-
-[node name="corner_wall_right_02" parent="walls" instance=ExtResource( 4 )]
-position = Vector2( 1596, 834 )
+position = Vector2( 221, 948 )
 rotation = 0.785398
 scale = Vector2( 1.626, 0.168 )
-collision_layer = 16
-collision_mask = 2
 
-[node name="corner_wall_right_01" parent="walls" instance=ExtResource( 4 )]
-position = Vector2( 1594, 259 )
+[node name="corner_wall_right_02" parent="walls" instance=ExtResource( 4 )]
+position = Vector2( 1722, 925 )
 rotation = -0.785398
 scale = Vector2( 1.626, 0.168 )
-collision_layer = 16
-collision_mask = 2
+
+[node name="corner_wall_right_01" parent="walls" instance=ExtResource( 4 )]
+position = Vector2( 1688, 139 )
+rotation = 0.785398
+scale = Vector2( 1.626, 0.168 )
 
 [node name="side_wall_left" parent="walls" instance=ExtResource( 4 )]
-position = Vector2( 288, 542 )
+position = Vector2( 24, 542 )
 scale = Vector2( 0.786087, 0.53835 )
-collision_layer = 16
-collision_mask = 2
 
 [node name="side_wall_right" parent="walls" instance=ExtResource( 4 )]
-position = Vector2( 1634, 550 )
+position = Vector2( 1895, 550 )
+rotation = -0.0108941
 scale = Vector2( 0.786087, 0.53835 )
-collision_layer = 16
-collision_mask = 2
 
 [node name="side_wall_bottom" parent="walls" instance=ExtResource( 4 )]
-position = Vector2( 958, 875 )
+position = Vector2( 958, 1134 )
 rotation = 1.5708
 scale = Vector2( 0.786087, 1.05835 )
-collision_layer = 16
-collision_mask = 2
 
 [node name="side_wall_up" parent="walls" instance=ExtResource( 4 )]
-position = Vector2( 958, 221 )
+position = Vector2( 958, -42 )
 rotation = 1.5708
 scale = Vector2( 0.786087, 1.05835 )
-collision_layer = 16
-collision_mask = 2
 
 [node name="middle_wall" parent="walls" instance=ExtResource( 5 )]
 position = Vector2( 962, 542 )

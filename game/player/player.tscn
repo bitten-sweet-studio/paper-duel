@@ -25,6 +25,8 @@ _card_hand_path = NodePath("")
 _weapon_user_path = NodePath("weapon_user")
 
 [node name="player_body" type="KinematicBody2D" parent="."]
+collision_layer = 2
+collision_mask = 88
 script = ExtResource( 3 )
 
 [node name="player_sprite" type="Sprite" parent="player_body"]
