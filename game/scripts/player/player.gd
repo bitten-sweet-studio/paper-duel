@@ -31,3 +31,4 @@ func _ready():
 	weapon_slot_manager.instantiate_weapon_slots()
 	health_agent.setup(self)
 	currency_agent.setup(self)
+	card_hand.setup(self)
