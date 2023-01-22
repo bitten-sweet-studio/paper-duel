@@ -53,8 +53,20 @@ func move_attachment_next():
 
 
 func move_attachment(direction: int):
-	var attach_success: bool = attach_to_first_valid_slot(_handled_weapon_slot_index, direction)
+	var start_index: int = offset_slot_index(_handled_weapon_slot_index, direction)
+	var attach_success: bool = attach_to_first_valid_slot(start_index, direction)
+
 	return attach_success
+	
+func offset_slot_index(slot_index: int, direction: int, offset: int = 1) -> int:
+	var result: int = slot_index
+
+	if direction == AttachDirection.CLOCKWISE:
+		result += offset
+	else:
+		result -= offset
+		
+	return result
 
 
 func attach_raw(slot_index: int, direction: int):
@@ -68,23 +80,18 @@ func attach_raw(slot_index: int, direction: int):
 
 func perform_actual_attachment(slot_index: int, direction: int):
 	var target_slot = get_slot(slot_index)
-	var weapon_parent = _handled_weapon.get_parent()
 
-	if weapon_parent:
-		fully_dettach()
-
+	fully_dettach()
 	target_slot.attach(_handled_weapon)
 	attach_virtually_to_other_slots(slot_index, direction)
 
 
 func attach_virtually_to_other_slots(start_slot_index: int, direction: int):
-	var taken_slots_count = _handled_weapon.definition.slots_needed
-	var taken_slots_range = get_slots_indexes_range(start_slot_index, direction, taken_slots_count)
+	start_slot_index = offset_slot_index(start_slot_index, direction)
+	var taken_slots_count = get_slots_needed_by_handled_weapon()
+	var taken_slots_range = get_slots_indexes_range(start_slot_index, direction, taken_slots_count - 1)
 
 	for i in taken_slots_range:
-		if i == start_slot_index:
-			continue
-
 		get_slot(i).set_weapon(_handled_weapon)
 
 
@@ -113,71 +120,44 @@ func get_slot(index):
 
 
 func get_slots_indexes_range(
-	start_index_inclusive: int, direction: int, slot_count_cap = _weapon_slot_count
+	start_index_inclusive: int, direction: int, extra_slots_count = _weapon_slot_count
 ):
 	var result := []
 
 	if direction == AttachDirection.CLOCKWISE:
-		result = range(start_index_inclusive, start_index_inclusive + slot_count_cap)
+		result = range(start_index_inclusive, start_index_inclusive + extra_slots_count)
 	else:
-		result = range(start_index_inclusive, start_index_inclusive - slot_count_cap, -1)
+		result = range(start_index_inclusive, start_index_inclusive - extra_slots_count, -1)
 
 	return result
 
 
-func get_empty_slots_count_until_next_taken_slot(start_index_inclusive: int, direction: int):
-	var first_empty_slot_index = get_first_empty_slot_index(start_index_inclusive, direction)
+func get_first_valid_slot_index(start_index: int, direction: int, slots_needed = null):
+	if slots_needed == null:
+		slots_needed = get_slots_needed_by_handled_weapon()
 
-	if first_empty_slot_index == null:
-		return null
-
-	var result: int = 1
-
-	var slots_indexes_range: Array = get_slots_indexes_range(first_empty_slot_index, direction)
+	var slots_indexes_range: Array = get_slots_indexes_range(start_index, direction)
 	for i in slots_indexes_range:
-		var current_slot: WeaponSlot = get_slot(i)
+		var sequential_empty_slots: int = 0
 
-		if !current_slot.is_empty():
-			return result
-		else:
-			result += 1
+		var temp_slot_indexes_range: Array = get_slots_indexes_range(i, direction, slots_needed)
+		for j in temp_slot_indexes_range:
+			var current_slot = get_slot(j)
+			var slot_has_weapon_virtually_attached = current_slot.has_given_weapon(_handled_weapon) and !current_slot._is_weapon_actually_attached
+			
+			if current_slot.is_empty() or slot_has_weapon_virtually_attached:
+				sequential_empty_slots += 1
 
-	return result
-
-
-func get_first_empty_slot_index(start_index_inclusive: int, direction: int):
-	var slots_indexes_range: Array = get_slots_indexes_range(start_index_inclusive, direction)
-
-	for i in slots_indexes_range:
-		var current_slot: WeaponSlot = get_slot(i)
-
-		if !current_slot.is_empty():
-			continue
-
-		return i
+				if sequential_empty_slots == slots_needed:
+					return i
+			else:
+				sequential_empty_slots = 0
 
 	return null
 
 
-func get_first_valid_slot_index(start_index_inclusive: int, direction: int, slots_needed = null):
-	if slots_needed == null:
-		slots_needed = get_slots_needed_by_handled_weapon()
-
-	var first_empty_slot_index = get_first_empty_slot_index(start_index_inclusive, direction)
-	if first_empty_slot_index == null:
-		return null
-
-	var empty_slots_count_until_next_taken_slot = get_empty_slots_count_until_next_taken_slot(
-		start_index_inclusive, direction
-	)
-	if empty_slots_count_until_next_taken_slot <= slots_needed:
-		return null
-
-	return first_empty_slot_index
-
-
 func get_slots_needed_by_handled_weapon():
-	return 2
+	return _handled_weapon.definition.slots_needed
 
 
 func attach_to_first_valid_slot(start_index_inclusive: int, direction: int):
