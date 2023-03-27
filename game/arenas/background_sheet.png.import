@@ -15,7 +15,7 @@ dest_files=[ "res://.import/background_sheet.png-39767499955b20dc733b7d8d9337e2e
 [params]
 
 compress/mode=0
-compress/lossy_quality=0.7
+compress/lossy_quality=0.0
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0

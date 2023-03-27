@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=5 format=2]
 
 [ext_resource path="res://scripts/weapon_system/weapon_definition.gd" type="Script" id=1]
-[ext_resource path="res://weapon/duck_gun/duck_weapon.png" type="Image" id=2]
+[ext_resource path="res://weapon/duck_gun/duck_gun.png" type="Texture" id=2]
 [ext_resource path="res://weapon/duck_gun/duck_gun_bullet_def.tres" type="Resource" id=3]
 [ext_resource path="res://weapon/duck_gun/duck_gun.tscn" type="PackedScene" id=4]
 

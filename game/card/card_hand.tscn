@@ -3,8 +3,8 @@
 [ext_resource path="res://scripts/card/card_hand.gd" type="Script" id=1]
 [ext_resource path="res://card/card.tscn" type="PackedScene" id=2]
 [ext_resource path="res://weapon/laser_weapon/weapon_def_laser_weapon.tres" type="Resource" id=3]
-[ext_resource path="res://weapon/pistol/weapon_def_pistol.tres" type="Resource" id=4]
-[ext_resource path="res://weapon/pirate_gun/weapon_def_pirate_gun.tres" type="Resource" id=5]
+[ext_resource path="res://weapon/pistol/pistol_weapon_def.tres" type="Resource" id=4]
+[ext_resource path="res://weapon/pirate_gun/pirate_gun_weapon_def.tres" type="Resource" id=5]
 [ext_resource path="res://weapon/bazooka/bazooka_weapon_def.tres" type="Resource" id=6]
 
 [node name="card_hand" type="Node2D"]

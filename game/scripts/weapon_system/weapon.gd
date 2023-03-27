@@ -55,6 +55,7 @@ func handle_shots(delta: float):
 	if fire_cooldown_timer >= fire_cooldown:
 		fire_cooldown_timer = 0
 		shoot()
+		shoot()
 	else:
 		fire_cooldown_timer += delta
 

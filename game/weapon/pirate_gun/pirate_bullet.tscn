@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://weapon/pirate_gun/pirate_bullet.png" type="Texture" id=1]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 36.8782
+
+[node name="pirate_gun_bullet" type="CollisionShape2D"]
+scale = Vector2( 0.25, 0.25 )
+shape = SubResource( 1 )
+
+[node name="sprite" type="Sprite" parent="."]
+position = Vector2( -4, 12 )
+scale = Vector2( 0.164062, 0.164062 )
+texture = ExtResource( 1 )
