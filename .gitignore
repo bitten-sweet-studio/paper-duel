@@ -1,7 +1,9 @@
-
-# Godot-specific ignores
+# godot
 .import/
 
-# Mono-specific ignores
+# mono
 .mono/
 data_*/
+
+# misc
+node_modules/
