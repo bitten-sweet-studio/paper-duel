@@ -1,16 +1,16 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scripts/weapon_system/weapon_body.gd" type="Script" id=1]
-[ext_resource path="res://weapon/pirate_gun/pirate_gun.png" type="Texture" id=2]
+[ext_resource path="res://weapon/pirate_gun/pirate_gun.png" type="Texture2D" id=2]
 
 [node name="laser_weapon" type="Node2D"]
 script = ExtResource( 1 )
 tip_path = NodePath("tip")
 
-[node name="sprite" type="Sprite" parent="."]
+[node name="sprite" type="Sprite2D" parent="."]
 position = Vector2( 36, -4 )
 scale = Vector2( 0.101852, 0.101852 )
 texture = ExtResource( 2 )
 
-[node name="tip" type="Position2D" parent="."]
+[node name="tip" type="Marker2D" parent="."]
 position = Vector2( 86, -3 )

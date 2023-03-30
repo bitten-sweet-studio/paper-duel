@@ -1,9 +1,9 @@
 extends Resource
 class_name BulletDefinition
 
-export var body_scene: PackedScene
-export var traits := []
-export var test: float
+@export var body_scene: PackedScene
+@export var traits := []
+@export var test: float
 
 
 func instance(weapon):

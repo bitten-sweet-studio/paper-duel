@@ -1,7 +1,7 @@
 extends Node
 
-export var max_currency: int = 2
-export var current_currency: int = 2
+@export var max_currency: int = 2
+@export var current_currency: int = 2
 var _player
 
 

@@ -1,10 +1,10 @@
 extends Node
 
-export var label_path: NodePath
-export var timer_path: NodePath
+@export var label_path: NodePath
+@export var timer_path: NodePath
 
-onready var label: Label = get_node(label_path)
-onready var timer: Timer = get_node(timer_path)
+@onready var label: Label = get_node(label_path)
+@onready var timer: Timer = get_node(timer_path)
 
 var _state_machine: MatchStateMachine
 

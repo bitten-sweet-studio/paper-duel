@@ -1,9 +1,9 @@
 extends Node
 class_name WeaponUser
 
-export var _bullets_parent_path: NodePath
+@export var _bullets_parent_path: NodePath
 
-onready var _bullets_parent: Node2D = get_node(_bullets_parent_path)
+@onready var _bullets_parent: Node2D = get_node(_bullets_parent_path)
 
 var _weapons := []
 

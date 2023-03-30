@@ -1,7 +1,7 @@
 extends Node2D
 class_name Weapon
 
-export var definition: Resource
+@export var definition: Resource
 
 var has_traits: bool
 
@@ -17,14 +17,14 @@ var _bullets := []
 var _player
 
 
-func _init(player, p_definition):
+func _init(player,p_definition):
 	_player = player
 	definition = p_definition
 
 	has_traits = definition.traits.size()
 	fire_cooldown = 1.0 / definition.fire_rate_per_second
 
-	body = definition.body_scene.instance()
+	body = definition.body_scene.instantiate()
 	add_child(body)
 
 
@@ -101,7 +101,7 @@ func shoot_burst(bullet_count: int):
 
 
 func shoot_bullet():
-	var bullet = definition.bullets_definition[0].instance(self)
+	var bullet = definition.bullets_definition[0].instantiate(self)
 	_bullets.append(bullet)
 
 	_player.weapon_user.register_bullet(bullet)
@@ -114,7 +114,7 @@ func shoot_bullet():
 
 func add_spread(direction: Vector2) -> Vector2:
 	var spread_radians_range: Vector2 = Vector2(
-		deg2rad(-definition.spread_angle_range.x), deg2rad(definition.spread_angle_range.y)
+		deg_to_rad(-definition.spread_angle_range.x), deg_to_rad(definition.spread_angle_range.y)
 	)
 
 	var spread_radians: float = RangeUtil.random(spread_radians_range)

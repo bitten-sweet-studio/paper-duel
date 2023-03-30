@@ -1,7 +1,7 @@
 extends Node
 
-export var key: String
-export var path: NodePath
+@export var key: String
+@export var path: NodePath
 
 
 func _ready():

@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://card/outline_speed.png" type="Texture" id=1]
+[ext_resource path="res://card/outline_speed.png" type="Texture2D" id=1]
 [ext_resource path="res://card/card_speed_indicator.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/card/card_speed_widget.gd" type="Script" id=3]
 
-[node name="card_speed_widget" type="Sprite"]
+[node name="card_speed_widget" type="Sprite2D"]
 scale = Vector2( 0.109375, 0.109375 )
 texture = ExtResource( 1 )
 script = ExtResource( 3 )

@@ -16,8 +16,8 @@ possible_weapon_definition = [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 
 
 [node name="cards" type="Node2D" parent="."]
 
-[node name="begin" type="Position2D" parent="."]
+[node name="begin" type="Marker2D" parent="."]
 position = Vector2( -400, 0 )
 
-[node name="end" type="Position2D" parent="."]
+[node name="end" type="Marker2D" parent="."]
 position = Vector2( 400, 0 )

@@ -1,7 +1,7 @@
-extends KinematicBody2D
+extends CharacterBody2D
 class_name Bullet
 
-export var definition: Resource
+@export var definition: Resource
 
 var direction: Vector2
 var speed: float
@@ -9,11 +9,11 @@ var weapon: Weapon
 var bounces_left: int
 
 
-func _init(p_definition, p_weapon):
+func _init(p_definition,p_weapon):
 	definition = p_definition
 	weapon = p_weapon
 
-	var body = definition.body_scene.instance()
+	var body = definition.body_scene.instantiate()
 	add_child(body)
 
 	speed = weapon.definition.bullet_base_speed
@@ -67,12 +67,12 @@ func update_definition(delta: float):
 
 
 func set_collision_layers():
-	self.set_collision_layer_bit(0, false)
-	self.set_collision_layer_bit(3, true)
+	self.set_collision_layer_value(0, false)
+	self.set_collision_layer_value(3, true)
 
-	self.set_collision_mask_bit(0, false)
-	self.set_collision_mask_bit(1, true)
-	self.set_collision_mask_bit(4, true)
+	self.set_collision_mask_value(0, false)
+	self.set_collision_mask_value(1, true)
+	self.set_collision_mask_value(4, true)
 
 
 func destroy():

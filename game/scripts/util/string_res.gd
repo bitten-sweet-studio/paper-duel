@@ -1,7 +1,7 @@
 extends Resource
 class_name StringRes
 
-export var value: String
+@export var value: String
 
 var listeners := []
 

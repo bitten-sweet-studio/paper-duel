@@ -1,7 +1,7 @@
 extends Node2D
 class_name WeaponBody
 
-export var tip_path: NodePath
+@export var tip_path: NodePath
 
 
 func get_tip():

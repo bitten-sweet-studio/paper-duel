@@ -1,9 +1,9 @@
-extends KinematicBody2D
+extends CharacterBody2D
 class_name PlayerMovement
 
-export var is_movement_enabled: bool = true
-export var speed: float = 25000.0
-export var _input_definition: Resource
+@export var is_movement_enabled: bool = true
+@export var speed: float = 25000.0
+@export var _input_definition: Resource
 
 var velocity
 var _player: Player
@@ -27,7 +27,8 @@ func move_conditionally(delta: float):
 
 func move(delta: float):
 	get_movement_input()
-	move_and_slide(velocity * speed * delta)
+	set_velocity(velocity * speed * delta)
+	move_and_slide()
 
 
 func get_movement_input():

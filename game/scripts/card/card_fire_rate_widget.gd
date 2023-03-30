@@ -1,6 +1,6 @@
 extends Node
 
-export var fire_rates_refs := []
+@export var fire_rates_refs := []
 var _card
 
 

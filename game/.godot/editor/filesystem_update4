@@ -1,0 +1,4 @@
+res://scripts/util/global.gd
+res://scripts/card/card.gd
+res://scripts/player/player_movement.gd
+res://scripts/util/state_machine/state_machine.gd

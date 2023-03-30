@@ -1,16 +1,16 @@
 extends Node
 class_name CardHand
 
-export var cards_begin_path: NodePath
-export var cards_end_path: NodePath
-export var card_template_scene: PackedScene
-export var possible_weapon_definition := []
-export var cards_offset: Vector2 = Vector2(10, 10)
-export var card_count: int = 5
-export var _current_hovered_card_index: int = 0
+@export var cards_begin_path: NodePath
+@export var cards_end_path: NodePath
+@export var card_template_scene: PackedScene
+@export var possible_weapon_definition := []
+@export var cards_offset: Vector2 = Vector2(10, 10)
+@export var card_count: int = 5
+@export var _current_hovered_card_index: int = 0
 
-onready var cards_begin: Node2D = get_node(cards_begin_path)
-onready var cards_end: Node2D = get_node(cards_end_path)
+@onready var cards_begin: Node2D = get_node(cards_begin_path)
+@onready var cards_end: Node2D = get_node(cards_end_path)
 
 var _player
 
@@ -52,7 +52,7 @@ func create_initial_cards():
 
 func create_child_card():
 	var weapon_definition = get_weapon_definition()
-	var card = card_template_scene.instance()
+	var card = card_template_scene.instantiate()
 	card.setup(weapon_definition)
 	add_card(card)
 	

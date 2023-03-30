@@ -6,7 +6,7 @@ var _player
 
 func setup(player):
 	_player = player
-	_player.died_event.connect("event_signal",self, "handle_loss")
+	_player.died_event.connect("event_signal",Callable(self,"handle_loss"))
 
 func handle_victory():
 	set_points(current_points + 1)
