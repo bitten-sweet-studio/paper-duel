@@ -12,6 +12,7 @@
       "path": "./node_modules/cz-emoji"
     },
     "cz-emoji": {
+      "conventional": true,
       "types": [
         {
           "emoji": "🎨",
@@ -174,6 +175,12 @@
           "code": ":children_crossing:",
           "description": "improving user experience / usability",
           "name": "ux"
+        },
+        {
+          "emoji": "🖥️",
+          "code": ":desktop_computer:",
+          "description": "managing general project processes",
+          "name": "dev"
         },
         {
           "emoji": "🌴",
