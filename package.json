@@ -1,0 +1,196 @@
+{
+  "name": "paper-duel-npm",
+  "devDependencies": {
+    "cz-emoji": "^1.3.2-canary.2",
+    "husky": "^8.0.3"
+  },
+  "scripts": {
+    "prepare": "husky install"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-emoji"
+    },
+    "cz-emoji": {
+      "types": [
+        {
+          "emoji": "🎨",
+          "code": ":art:",
+          "description": "improving structure / format of the code",
+          "name": "style"
+        },
+        {
+          "emoji": "⚡️",
+          "code": ":zap:",
+          "description": "improving performance",
+          "name": "perf"
+        },
+        {
+          "emoji": "🔥",
+          "code": ":fire:",
+          "description": "removing code or files",
+          "name": "prune"
+        },
+        {
+          "emoji": "🐛",
+          "code": ":bug:",
+          "description": "fixing a bug",
+          "name": "fix"
+        },
+        {
+          "emoji": "🚑",
+          "code": ":ambulance:",
+          "description": "critical hotfix",
+          "name": "quickfix"
+        },
+        {
+          "emoji": "✨",
+          "code": ":sparkles:",
+          "description": "adding new features",
+          "name": "feat"
+        },
+        {
+          "emoji": "📝",
+          "code": ":pencil:",
+          "description": "managing docs",
+          "name": "docs"
+        },
+        {
+          "emoji": "🚀",
+          "code": ":rocket:",
+          "description": "deploying stuff",
+          "name": "deploy"
+        },
+        {
+          "emoji": "💄",
+          "code": ":lipstick:",
+          "description": "updating the ui and style files",
+          "name": "ui"
+        },
+        {
+          "emoji": "🧐",
+          "code": ":face_with_monocle:",
+          "description": "managing tests",
+          "name": "test"
+        },
+        {
+          "emoji": "🔒",
+          "code": ":lock:",
+          "description": "fixing security issues",
+          "name": "security"
+        },
+        {
+          "emoji": "🔖",
+          "code": ":bookmark:",
+          "description": "releasing / version tags",
+          "name": "release"
+        },
+        {
+          "emoji": "🚧",
+          "code": ":construction:",
+          "description": "work in progress",
+          "name": "wip"
+        },
+        {
+          "emoji": "⛓️",
+          "code": ":chains:",
+          "description": "managing dependencies",
+          "name": "deps"
+        },
+        {
+          "emoji": "👷",
+          "code": ":construction_worker:",
+          "description": "managing ci",
+          "name": "ci"
+        },
+        {
+          "emoji": "📈",
+          "code": ":chart_with_upwards_trend:",
+          "description": "adding analytics or tracking code",
+          "name": "analytics"
+        },
+        {
+          "emoji": "♻️",
+          "code": ":recycle:",
+          "description": "refactoring code",
+          "name": "refactoring"
+        },
+        {
+          "emoji": "🌐",
+          "code": ":globe_with_meridians:",
+          "description": "internationalization and localization",
+          "name": "i18n"
+        },
+        {
+          "emoji": "⏪",
+          "code": ":rewind:",
+          "description": "reverting changes",
+          "name": "revert"
+        },
+        {
+          "emoji": "🔀",
+          "code": ":twisted_rightwards_arrows:",
+          "description": "merging branches",
+          "name": "merge"
+        },
+        {
+          "emoji": "🚚",
+          "code": ":truck:",
+          "description": "moving or renaming files",
+          "name": "mv"
+        },
+        {
+          "emoji": "💥",
+          "code": ":boom:",
+          "description": "introducing breaking changes",
+          "name": "breaking"
+        },
+        {
+          "emoji": "🍱",
+          "code": ":bento:",
+          "description": "adding or updating assets",
+          "name": "assets"
+        },
+        {
+          "emoji": "👌",
+          "code": ":ok_hand:",
+          "description": "updating code due to code review changes",
+          "name": "review"
+        },
+        {
+          "emoji": "💡",
+          "code": ":bulb:",
+          "description": "documenting source code",
+          "name": "docs-code"
+        },
+        {
+          "emoji": "💬",
+          "code": ":speech_balloon:",
+          "description": "updating text and literals",
+          "name": "texts"
+        },
+        {
+          "emoji": "🚸",
+          "code": ":children_crossing:",
+          "description": "improving user experience / usability",
+          "name": "ux"
+        },
+        {
+          "emoji": "🌴",
+          "code": ":palm_tree:",
+          "description": "managing git hooks, gitignore or related",
+          "name": "git"
+        },
+        {
+          "emoji": "🔩",
+          "code": ":nut_and_bolt:",
+          "description": "chore change",
+          "name": "chore"
+        }
+      ],
+      "scopes": [
+        "core"
+      ]
+    }
+  }
+}
