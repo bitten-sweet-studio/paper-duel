@@ -1,76 +1,61 @@
-name: "godot-ci export"
-on: 
+name: 🚀 Build for [ Linux, Mac, Windows], Deploy to Github Pages
+on:
   push:
     branches:
       - main
 
     paths:
-      - "**.gd"
-      - "**.tscn"
-      - "**.import"
-      - "**.tres"
-      - "**.ttf"
-      - ".github/workflows/**.yml"
-      - "**.cfg"
+      - ".github/"
+      - "game/"
 
 env:
+  EXPORT_NAME: paper-duel
   GODOT_VERSION: 3.5.1
-  EXPORT_NAME: godot-wild-jam-game-53
   PROJECT_PATH: game
-  
+
 permissions:
   contents: write
 
 jobs:
-  export-windows:
-    name: Windows Export
-    runs-on: ubuntu-20.04
-    container:
-      image: barichello/godot-ci:3.5.1
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          lfs: true
-      - name: Setup
-        run: |
-          mkdir -v -p ~/.local/share/godot/templates
-          mv /root/.local/share/godot/templates/${GODOT_VERSION}.stable ~/.local/share/godot/templates/${GODOT_VERSION}.stable
-      - name: Windows Build
-        run: |
-          mkdir -v -p build/windows
-          cd $PROJECT_PATH
-          godot -v --export "windows" ../build/windows/$EXPORT_NAME.exe
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v1
-        with:
-          name: windows
-          path: build/windows
+  platform-matrix:
+    name: 🪟 Windows Build and Upload
+    strategy:
+      matrix:
+        platform: [linux, mac, windows]
+        include:
+          - extension: x86_64
+            platform: linux
 
-  export-linux:
-    name: Linux Export
+          - extension: zip
+            platform: mac
+
+          - extension: exe
+            platform: windows
+
     runs-on: ubuntu-20.04
-    container:
-      image: barichello/godot-ci:3.5.1
+    container: barichello/godot-ci:3.5.1
     steps:
       - name: Checkout
         uses: actions/checkout@v2
         with:
           lfs: true
+
       - name: Setup
         run: |
           mkdir -v -p ~/.local/share/godot/templates
           mv /root/.local/share/godot/templates/${GODOT_VERSION}.stable ~/.local/share/godot/templates/${GODOT_VERSION}.stable
-      - name: Linux Build
+
+      - name: Build
         run: |
-          mkdir -v -p build/linux
+          mkdir -v -p build/${{ matrix.platform }}
           cd $PROJECT_PATH
-          godot -v --export "linux" ../build/linux/$EXPORT_NAME.x86_64
+          godot -v --export ${{ matrix.platform }} ../build/${{ matrix.platform }}/${EXPORT_NAME}.${{ matrix.extension }}
+
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
-          name: linux
-          path: build/linux
+          name: ${{ matrix.platform }}
+        path: build/${{ matrix.platform }}
 
   export-web:
     name: Web Export
@@ -103,28 +88,3 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@releases/v4
         with:
           folder: build/web
-
-  export-mac:
-    name: Mac Export
-    runs-on: ubuntu-20.04
-    container:
-      image: barichello/godot-ci:3.5.1
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          lfs: true
-      - name: Setup
-        run: |
-          mkdir -v -p ~/.local/share/godot/templates
-          mv /root/.local/share/godot/templates/${GODOT_VERSION}.stable ~/.local/share/godot/templates/${GODOT_VERSION}.stable
-      - name: Mac Build
-        run: |
-          mkdir -v -p build/mac
-          cd $PROJECT_PATH
-          godot -v --export "mac" ../build/mac/$EXPORT_NAME.zip
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v1
-        with:
-          name: mac
-          path: build/mac
