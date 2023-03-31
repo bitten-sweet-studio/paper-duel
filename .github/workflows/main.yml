@@ -1,4 +1,4 @@
-name: 🚀 Build for [ Linux, Mac, Windows], Deploy to Github Pages
+name: "🚀 Build and Deploy"
 on:
   push:
     branches:
@@ -18,19 +18,19 @@ permissions:
 
 jobs:
   platform-matrix:
-    name: 🪟 Windows Build and Upload
+    name: Builds for Linux, Mac and Windows
     strategy:
       matrix:
         platform: [linux, mac, windows]
         include:
-          - extension: x86_64
-            platform: linux
+          - platform: linux
+            extension: x86_64
 
-          - extension: zip
-            platform: mac
+          - platform: mac
+            extension: zip
 
-          - extension: exe
-            platform: windows
+          - platform: windows
+            extension: exe
 
     runs-on: ubuntu-20.04
     container: barichello/godot-ci:3.5.1
@@ -55,7 +55,7 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: ${{ matrix.platform }}
-        path: build/${{ matrix.platform }}
+          path: build/${{ matrix.platform }}
 
   export-web:
     name: Web Export
