@@ -1,0 +1,62 @@
+emoji = true
+
+[[commit_types]]
+name = "feat"
+emoji = "✨"
+description = "a new feature"
+
+[[commit_types]]
+name = "fix"
+emoji = "🐛"
+description = "a bug fix"
+
+[[commit_types]]
+name = "docs"
+emoji = "📚"
+description = "documentation changes"
+
+[[commit_types]]
+name = "style"
+emoji = "💄"
+description = "changes that do not affect the meaning of the code"
+
+[[commit_types]]
+name = "refactor"
+emoji = "🔨"
+description = "a code change that neither fixes a bug nor adds a feature"
+
+[[commit_types]]
+name = "perf"
+emoji = "⚡"
+description = "a code change that improves performance"
+
+[[commit_types]]
+name = "test"
+emoji = "🚨"
+description = "adding missing tests or correcting existing tests"
+
+[[commit_types]]
+name = "build"
+emoji = "📦"
+description = "changes that affect the build system or external dependencies"
+
+[[commit_types]]
+name = "ci"
+emoji = "🤖"
+description = "managing ci"
+
+[[commit_types]]
+name = "revert"
+emoji = "⏪"
+description = "reverts a previous commit"
+
+[[commit_types]]
+name = "dev"
+emoji = "💻"
+description = "modifies the dev / project experience"
+
+[[commit_types]]
+name = "chore"
+emoji = "🧹"
+description = "(if using often, we should add a new commit type) not included in other commit types"
+
