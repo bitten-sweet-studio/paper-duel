@@ -5,9 +5,8 @@ on:
     branches: 
       - main
 
-  paths:
-    - ".github/**"
-
+    paths:
+      - ".github/**"
 jobs:
   main:
     runs-on: ubuntu-latest
