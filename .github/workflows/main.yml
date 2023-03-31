@@ -5,8 +5,8 @@ on:
       - main
 
     paths:
-      - ".github/"
-      - "game/"
+      - ".github/**"
+      - "game/**"
 
 env:
   EXPORT_NAME: paper-duel
