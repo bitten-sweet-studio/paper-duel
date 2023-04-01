@@ -49,7 +49,8 @@ jobs:
         run: |
           mkdir -v -p build/${{ matrix.platform }}
           cd $PROJECT_PATH
-          godot -v --export ${{ matrix.platform }} ../build/${{ matrix.platform }}/${EXPORT_NAME}.${{ matrix.extension }}
+          godot -v --export ${{ matrix.platform }} ../build/${{ matrix.platform }}/${EXPORT_NAME}.${{ matrix.extension }} 2>&1 | tee export.log
+          grep -q ERROR export.log && echo "::error godot export::Found 'ERROR' string in `godot --export` logs" && exit 1
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
