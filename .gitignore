@@ -1,9 +1,3 @@
 # godot
-.import/
-
-# mono
-.mono/
-data_*/
-
-# misc
-node_modules/
+game/.import/
+game/.godot/
