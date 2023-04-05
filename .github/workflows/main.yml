@@ -10,7 +10,7 @@ on:
 
 env:
   EXPORT_NAME: paper-duel
-  GODOT_VERSION: 3.5.1
+  GODOT_VERSION: 4.0.1
   PROJECT_PATH: game
 
 permissions:
@@ -33,7 +33,7 @@ jobs:
             extension: exe
 
     runs-on: ubuntu-20.04
-    container: barichello/godot-ci:3.5.1
+    container: niscolas/godot-ci:4.0.1
     steps:
       - name: Checkout
         uses: actions/checkout@v2
