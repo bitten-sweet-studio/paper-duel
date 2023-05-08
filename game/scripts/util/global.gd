@@ -8,5 +8,5 @@ func register(key, node):
 	nodes[key] = node
 
 
-func get(key):
+func get_value(key):
 	return nodes[key]

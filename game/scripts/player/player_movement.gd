@@ -5,7 +5,6 @@ class_name PlayerMovement
 @export var speed: float = 25000.0
 @export var _input_definition: Resource
 
-var velocity
 var _player: Player
 
 

@@ -4,7 +4,7 @@ class_name WeaponDefinition
 @export var name: String = "Weapon"
 @export var body_scene: PackedScene
 @export var icon: Texture2D
-@export var traits := []
+@export var traits: Array[WeaponTrait] = []
 @export var damage: float = 1.0
 @export var cost: int = 1
 @export var slots_needed: int = 1
@@ -16,16 +16,16 @@ class_name WeaponDefinition
 @export var bullet_acceleration_multiplier_per_update: float = 1
 @export var bullets_per_burst_range: Vector2 = Vector2.ONE
 @export var burst_fire_rate_per_second: float = 0.1
-@export var bullets_definition := []
+@export var bullets_definition : Array[BulletDefinition] = []
 @export var bullets_per_shot_range: Vector2 = Vector2.ONE
 @export var bullets_spread_range: Vector2 = Vector2.ZERO
 
 
-func instance(player):
+func instance(player: Player):
 	var result = Weapon.new(player, self)
 	return result
 
 
-func update(owner, delta: float):
-	for trait in traits:
-		trait.update(owner, delta)
+func update(owner: Weapon, delta: float):
+	for current_trait in traits:
+		current_trait.update(owner, delta)

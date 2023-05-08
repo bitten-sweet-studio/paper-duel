@@ -26,8 +26,9 @@ var state_machine: StateMachine
 func setup():
 	state_machine = StateMachine.new()
 	state_machine.setup(self, State.CARD_SELECTION, states)
-	global.get("prep_timer").connect("timeout",Callable(self,"_on_prep_timer_timeout"))
-	global.get("fighting_timer").connect("timeout",Callable(self,"_on_fighting_timer_timeout"))
+	var current_global : Global = global
+	current_global.get_value("prep_timer").connect("timeout", _on_prep_timer_timeout)
+	current_global.get_value("fighting_timer").connect("timeout", _on_fighting_timer_timeout)
 
 
 func _process(delta: float):

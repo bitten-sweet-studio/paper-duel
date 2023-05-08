@@ -1,7 +1,7 @@
 extends Node2D
 class_name Weapon
 
-@export var definition: Resource
+@export var definition: WeaponDefinition
 
 var has_traits: bool
 
@@ -11,7 +11,7 @@ var fire_cooldown_timer: float
 var current_burst_cooldown: float
 var current_burst_bullets_left: int
 var current_burst_cooldown_timer: float
-var body
+var body: Weapon
 
 var _bullets := []
 var _player
@@ -66,8 +66,8 @@ func update_bullets(delta: float):
 
 
 func update_traits(delta: float):
-	for trait in definition.traits:
-		trait.custom_update(self, delta)
+	for current_trait in definition.traits:
+		current_trait.custom_update(self, delta)
 
 
 func register_bullet(bullet):
