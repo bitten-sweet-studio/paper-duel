@@ -1,14 +1,14 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://util/textures/white_pixel.png" type="Texture2D" id=1]
+[ext_resource path="res://util/textures/white_pixel.png" type="Texture" id=1]
 [ext_resource path="res://scripts/card/card.gd" type="Script" id=2]
-[ext_resource path="res://weapon/duck_gun/duck_gun.png" type="Texture2D" id=3]
-[ext_resource path="res://card/cleanCard.png" type="Texture2D" id=4]
+[ext_resource path="res://weapon/duck_gun/duck_gun.png" type="Texture" id=3]
+[ext_resource path="res://card/cleanCard.png" type="Texture" id=4]
 [ext_resource path="res://card/fire_rate_widget.tscn" type="PackedScene" id=6]
 [ext_resource path="res://card/card_speed_widget.tscn" type="PackedScene" id=7]
-[ext_resource path="res://font/Street-Postah.otf" type="FontFile" id=8]
+[ext_resource path="res://font/Street-Postah.otf" type="DynamicFontData" id=8]
 
-[sub_resource type="FontFile" id=5]
+[sub_resource type="DynamicFont" id=5]
 size = 40
 outline_size = 2
 outline_color = Color( 0.313726, 0.313726, 0.313726, 1 )
@@ -16,7 +16,7 @@ use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 8 )
 
-[sub_resource type="FontFile" id=1]
+[sub_resource type="DynamicFont" id=1]
 size = 100
 outline_size = 3
 outline_color = Color( 1, 0.552941, 0, 1 )
@@ -24,7 +24,7 @@ use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 8 )
 
-[sub_resource type="FontFile" id=2]
+[sub_resource type="DynamicFont" id=2]
 size = 100
 use_mipmaps = true
 use_filter = true
@@ -45,27 +45,27 @@ position = Vector2( -37, -4 )
 scale = Vector2( 1.14912, 1.2029 )
 color = Color( 0.0745098, 0.647059, 0.929412, 1 )
 texture = ExtResource( 1 )
-polygon = PackedVector2Array( -67.0076, -81.4699, -63.5267, -59.0241, -49.603, -52.3735, -42.6412, 15.7952, -46.1221, 83.1325, -46.1221, 95.6024, -34.8091, 99.759, 33.0687, 104.747, 92.2443, 99.759, 104.428, 94.7711, 110.519, 82.3012, 108.779, 10.8072, 114, -89.7831, 75.7099, -97.2651, 27.8473, -99.759, -15.6641, -97.2651, -47.8626, -93.1084 )
+polygon = PoolVector2Array( -67.0076, -81.4699, -63.5267, -59.0241, -49.603, -52.3735, -42.6412, 15.7952, -46.1221, 83.1325, -46.1221, 95.6024, -34.8091, 99.759, 33.0687, 104.747, 92.2443, 99.759, 104.428, 94.7711, 110.519, 82.3012, 108.779, 10.8072, 114, -89.7831, 75.7099, -97.2651, 27.8473, -99.759, -15.6641, -97.2651, -47.8626, -93.1084 )
 
 [node name="text" type="Label" parent="card_outline"]
-offset_left = -20.0153
-offset_top = -142.988
-offset_right = 457.985
-offset_bottom = -46.9878
+margin_left = -20.0153
+margin_top = -142.988
+margin_right = 457.985
+margin_bottom = -46.9878
 custom_fonts/font = SubResource( 5 )
 text = "E / N"
 
-[node name="card_background" type="Sprite2D" parent="."]
+[node name="card_background" type="Sprite" parent="."]
 modulate = Color( 1, 0.960784, 0.866667, 1 )
 position = Vector2( -9, -4 )
 scale = Vector2( 0.181481, 0.181481 )
 texture = ExtResource( 4 )
 
 [node name="gun_name" type="Label" parent="card_background"]
-offset_left = -192.857
-offset_top = -601.0
-offset_right = 288.143
-offset_bottom = -480.0
+margin_left = -192.857
+margin_top = -601.0
+margin_right = 288.143
+margin_bottom = -480.0
 custom_colors/font_color = Color( 0.113725, 0.113725, 0.113725, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "Gun Name"
@@ -73,16 +73,16 @@ align = 1
 valign = 1
 
 [node name="gun_price" type="Label" parent="card_background"]
-offset_left = -473.879
-offset_top = -534.491
-offset_right = -427.879
-offset_bottom = -438.491
-scale = Vector2( 1.2, 1.2 )
+margin_left = -473.879
+margin_top = -534.491
+margin_right = -427.879
+margin_bottom = -438.491
+rect_scale = Vector2( 1.2, 1.2 )
 custom_colors/font_color = Color( 0.380392, 0, 0, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "1"
 
-[node name="gun_sprite" type="Sprite2D" parent="."]
+[node name="gun_sprite" type="Sprite" parent="."]
 position = Vector2( 8, -42 )
 scale = Vector2( 0.103125, 0.127778 )
 texture = ExtResource( 3 )

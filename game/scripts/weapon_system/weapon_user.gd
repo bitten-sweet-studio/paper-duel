@@ -1,9 +1,11 @@
 extends Node
 class_name WeaponUser
 
-@export var _bullets_parent: Node2D
+export var _bullets_parent_path: NodePath
 
-var _weapons : Array[Weapon] = []
+onready var _bullets_parent: Node2D = get_node(_bullets_parent_path)
+
+var _weapons := []
 
 
 func custom_update(delta: float):
@@ -28,4 +30,6 @@ func register_weapon(weapon):
 
 
 func unregister_weapon(weapon: Weapon):
-	_weapons.erase(weapon)
+	var weapon_index: int = _weapons.find(weapon)
+	if weapon_index >= 0:
+		_weapons.remove(weapon_index)

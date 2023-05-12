@@ -3,17 +3,17 @@ class_name PlayerStateMachine
 
 enum State { CARD_SELECTION, WEAPON_ATTACHMENT, FIGHTING }
 
-@export var _player_path: NodePath
-@export var _card_selection_state_path: NodePath = "card_selection_state"
-@export var _weapon_attachment_state_path: NodePath = "weapon_attachment_state"
-@export var _fighting_state_path: NodePath = "fighting_attachment_state"
+export var _player_path: NodePath
+export var _card_selection_state_path: NodePath = "card_selection_state"
+export var _weapon_attachment_state_path: NodePath = "weapon_attachment_state"
+export var _fighting_state_path: NodePath = "fighting_attachment_state"
 
-@onready var player = get_node(_player_path)
-@onready var card_selection_state = get_node(_card_selection_state_path)
-@onready var weapon_attachment_state = get_node(_weapon_attachment_state_path)
-@onready var fighting_state = get_node(_fighting_state_path)
+onready var player = get_node(_player_path)
+onready var card_selection_state = get_node(_card_selection_state_path)
+onready var weapon_attachment_state = get_node(_weapon_attachment_state_path)
+onready var fighting_state = get_node(_fighting_state_path)
 
-@onready var states: Dictionary = {
+onready var states: Dictionary = {
 	State.CARD_SELECTION: card_selection_state,
 	State.WEAPON_ATTACHMENT: weapon_attachment_state,
 	State.FIGHTING: fighting_state
@@ -26,9 +26,8 @@ var state_machine: StateMachine
 func setup():
 	state_machine = StateMachine.new()
 	state_machine.setup(self, State.CARD_SELECTION, states)
-	var current_global : Global = global
-	current_global.get_value("prep_timer").connect("timeout", _on_prep_timer_timeout)
-	current_global.get_value("fighting_timer").connect("timeout", _on_fighting_timer_timeout)
+	global.get("prep_timer").connect("timeout", self, "_on_prep_timer_timeout")
+	global.get("fighting_timer").connect("timeout", self, "_on_fighting_timer_timeout")
 
 
 func _process(delta: float):

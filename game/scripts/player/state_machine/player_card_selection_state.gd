@@ -1,7 +1,7 @@
 extends Node
 class_name PlayerCardSelectionState
 
-@export var input_definition: Resource
+export var input_definition: Resource
 
 var _state_machine: PlayerStateMachine
 var _player

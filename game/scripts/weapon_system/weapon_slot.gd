@@ -1,12 +1,12 @@
 extends Node2D
 class_name WeaponSlot
 
-@export var sprite_path: NodePath
-@export var sprite_attached_color: Color
-@export var sprite_attached_virtually_color: Color
+export var sprite_path: NodePath
+export var sprite_attached_color: Color
+export var sprite_attached_virtually_color: Color
 
-@onready var sprite: Sprite2D = get_node(sprite_path)
-@onready var sprite_default_color: Color = sprite.modulate
+onready var sprite: Sprite = get_node(sprite_path)
+onready var sprite_default_color: Color = sprite.modulate
 
 var _weapon: Weapon
 var _is_weapon_actually_attached: bool

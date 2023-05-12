@@ -1,9 +1,9 @@
 extends Node
 class_name WeaponSlotManager
 
-@export var weapon_slot_scene: PackedScene
-@export var _weapon_slot_count: int = 8
-@export var radius: float = 50
+export var weapon_slot_scene: PackedScene
+export var _weapon_slot_count: int = 8
+export var radius: float = 50
 
 var _first_valid_slot_index: int = 0
 var _handled_weapon: Weapon
@@ -16,7 +16,7 @@ enum AttachDirection { CLOCKWISE, COUNTER_CLOCKWISE }
 func instantiate_weapon_slots():
 	var step = 2 * PI / _weapon_slot_count
 	for i in range(_weapon_slot_count):
-		var current_weapon_slot = weapon_slot_scene.instantiate()
+		var current_weapon_slot = weapon_slot_scene.instance()
 		var current_weapon_slot_position = Vector2(radius, 0).rotated(step * i)
 		current_weapon_slot.global_position = current_weapon_slot_position
 		current_weapon_slot.rotation = current_weapon_slot_position.angle()
@@ -36,7 +36,7 @@ func try_start_weapon_attachment(weapon_definition: WeaponDefinition, player):
 
 
 func initialize_handled_weapon(weapon_definition: WeaponDefinition, player):
-	_handled_weapon = weapon_definition.instantiate(player)
+	_handled_weapon = weapon_definition.instance(player)
 	return _handled_weapon
 
 

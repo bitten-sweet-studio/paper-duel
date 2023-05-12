@@ -1,11 +1,11 @@
 extends Node
 
-@export var event: Resource
-@export var label_path: NodePath = "."
+export var event: Resource
+export var label_path: NodePath = "."
 
 
 func _ready():
-	event.connect("event_signal",Callable(self,"update_label"))
+	event.connect("event_signal", self, "update_label")
 
 
 func update_label(text: String):

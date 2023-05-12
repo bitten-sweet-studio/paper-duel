@@ -1,11 +1,11 @@
 extends Node
 
-@export var max_health: int = 5
-@export var current_health: int = 5
-@export var max_health_increase_per_turn: int = 0
-@export var label_path: NodePath
+export var max_health: int = 5
+export var current_health: int = 5
+export var max_health_increase_per_turn: int = 0
+export var label_path: NodePath
 
-@onready var label: Label = get_node(label_path)
+onready var label: Label = get_node(label_path)
 
 var _player
 var is_dead: bool 

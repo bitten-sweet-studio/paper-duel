@@ -3,7 +3,7 @@ class_name PlayerManager
 
 signal player_died(player)
 
-@export var weapon_definitions := []
+export var weapon_definitions := []
 
 
 func _ready():
