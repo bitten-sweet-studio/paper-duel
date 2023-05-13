@@ -176,7 +176,8 @@ _global_script_class_icons={
 
 [application]
 
-config/name="godot-wild-jam-game-53"
+config/name="Paper Duel: Folded Fury"
+config/description="A top-down, paper-drawn, bullet hell, duel game were you and your friend incrementally attach weapons to your characters"
 run/main_scene="res://arenas/arena_full.tscn"
 boot_splash/bg_color=Color( 0.141176, 0.141176, 0.141176, 1 )
 config/icon="res://util/textures/godot_icon.png"
@@ -189,7 +190,8 @@ global="*res://util/global.tscn"
 
 window/size/width=1920
 window/size/height=1080
-window/size/resizable=false
+window/size/borderless=true
+window/size/fullscreen=true
 window/stretch/mode="2d"
 
 [gui]
