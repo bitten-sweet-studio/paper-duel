@@ -6,3 +6,6 @@
 ## 🎮 How to Play?
 - [🌐 Play on your browser, Here!](https://bitten-sweet-studio.github.io/paper-duel/)
 - Or, download Windows, MacOS or Linux versions on our [🏪 Itch.io Page!](https://eric-catarina.itch.io/paper-duel)
+
+## 🖼️ Preview!
+<img src="https://img.itch.zone/aW1hZ2UvMTg4OTQ2NC8xMjE1NjI4MC5wbmc=/794x1000/xFBR6s.png">
