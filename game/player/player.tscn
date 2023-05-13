@@ -92,6 +92,7 @@ _bullets_parent_path = NodePath("../bullets")
 
 [node name="currency_agent" type="Node" parent="."]
 script = ExtResource( 8 )
+current_currency = 1000
 
 [node name="health_agent" type="Node" parent="."]
 script = ExtResource( 12 )

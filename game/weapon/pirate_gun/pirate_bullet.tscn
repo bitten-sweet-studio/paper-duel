@@ -6,7 +6,6 @@
 radius = 36.8782
 
 [node name="pirate_gun_bullet" type="CollisionShape2D"]
-scale = Vector2( 0.25, 0.25 )
 shape = SubResource( 1 )
 
 [node name="sprite" type="Sprite" parent="."]
