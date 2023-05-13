@@ -63,7 +63,9 @@ func add_card(card):
 
 
 func get_weapon_definition():
-	var weapon_def_index: int = randi() % possible_weapon_definition.size()
+	randomize()
+	var rand_idx: float = rand_range(0, possible_weapon_definition.size())
+	var weapon_def_index: int = floor(rand_idx)
 	return possible_weapon_definition[weapon_def_index]
 
 
