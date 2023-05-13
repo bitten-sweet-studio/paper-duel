@@ -14,7 +14,7 @@ on:
       - "**.cfg"
 
 env:
-  GODOT_VERSION: 3.5.1
+  GODOT_VERSION: 3.5.2
   EXPORT_NAME: godot-wild-jam-game-53
   PROJECT_PATH: game
   
@@ -26,7 +26,7 @@ jobs:
     name: Windows Export
     runs-on: ubuntu-20.04
     container:
-      image: barichello/godot-ci:3.5.1
+      image: barichello/godot-ci:3.5.2
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -41,6 +41,7 @@ jobs:
           mkdir -v -p build/windows
           cd $PROJECT_PATH
           godot -v --export "windows" ../build/windows/$EXPORT_NAME.exe
+          butler push ./build/windows $ITCHIO_USERNAME/$ITCHIO_GAME:windows
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
@@ -51,7 +52,7 @@ jobs:
     name: Linux Export
     runs-on: ubuntu-20.04
     container:
-      image: barichello/godot-ci:3.5.1
+      image: barichello/godot-ci:3.5.2
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -66,6 +67,7 @@ jobs:
           mkdir -v -p build/linux
           cd $PROJECT_PATH
           godot -v --export "linux" ../build/linux/$EXPORT_NAME.x86_64
+          butler push ./build/linux $ITCHIO_USERNAME/$ITCHIO_GAME:linux
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
@@ -76,7 +78,7 @@ jobs:
     name: Web Export
     runs-on: ubuntu-20.04
     container:
-      image: barichello/godot-ci:3.5.1
+      image: barichello/godot-ci:3.5.2
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -108,7 +110,7 @@ jobs:
     name: Mac Export
     runs-on: ubuntu-20.04
     container:
-      image: barichello/godot-ci:3.5.1
+      image: barichello/godot-ci:3.5.2
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -123,6 +125,7 @@ jobs:
           mkdir -v -p build/mac
           cd $PROJECT_PATH
           godot -v --export "mac" ../build/mac/$EXPORT_NAME.zip
+          butler push ./build/mac $ITCHIO_USERNAME/$ITCHIO_GAME:mac
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
