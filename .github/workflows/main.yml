@@ -44,7 +44,7 @@ jobs:
           export BUTLER_API_KEY=${{ secrets.BUTLER_API_KEY }}
           export ITCHIO_USERNAME=${{ secrets.ITCHIO_USERNAME }}
           export ITCHIO_GAME=${{ secrets.ITCHIO_GAME }}
-          butler push ./build/windows $ITCHIO_USERNAME/$ITCHIO_GAME:windows
+          butler push ../build/windows $ITCHIO_USERNAME/$ITCHIO_GAME:windows
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
@@ -73,7 +73,7 @@ jobs:
           export BUTLER_API_KEY=${{ secrets.BUTLER_API_KEY }}
           export ITCHIO_USERNAME=${{ secrets.ITCHIO_USERNAME }}
           export ITCHIO_GAME=${{ secrets.ITCHIO_GAME }}
-          butler push ./build/linux $ITCHIO_USERNAME/$ITCHIO_GAME:linux
+          butler push ../build/linux $ITCHIO_USERNAME/$ITCHIO_GAME:linux
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
@@ -134,7 +134,7 @@ jobs:
           export BUTLER_API_KEY=${{ secrets.BUTLER_API_KEY }}
           export ITCHIO_USERNAME=${{ secrets.ITCHIO_USERNAME }}
           export ITCHIO_GAME=${{ secrets.ITCHIO_GAME }}
-          butler push ./build/mac $ITCHIO_USERNAME/$ITCHIO_GAME:mac
+          butler push ../build/mac $ITCHIO_USERNAME/$ITCHIO_GAME:mac
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
         with:
