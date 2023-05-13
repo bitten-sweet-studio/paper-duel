@@ -41,6 +41,7 @@ jobs:
           mkdir -v -p build/windows
           cd $PROJECT_PATH
           godot -v --export "windows" ../build/windows/$EXPORT_NAME.exe
+          export BUTLER_API_KEY=${{ secrets.BUTLER_API_KEY }}
           butler push ./build/windows $ITCHIO_USERNAME/$ITCHIO_GAME:windows
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
@@ -67,6 +68,7 @@ jobs:
           mkdir -v -p build/linux
           cd $PROJECT_PATH
           godot -v --export "linux" ../build/linux/$EXPORT_NAME.x86_64
+          export BUTLER_API_KEY=${{ secrets.BUTLER_API_KEY }}
           butler push ./build/linux $ITCHIO_USERNAME/$ITCHIO_GAME:linux
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
@@ -125,6 +127,7 @@ jobs:
           mkdir -v -p build/mac
           cd $PROJECT_PATH
           godot -v --export "mac" ../build/mac/$EXPORT_NAME.zip
+          export BUTLER_API_KEY=${{ secrets.BUTLER_API_KEY }}
           butler push ./build/mac $ITCHIO_USERNAME/$ITCHIO_GAME:mac
       - name: Upload Artifact
         uses: actions/upload-artifact@v1
