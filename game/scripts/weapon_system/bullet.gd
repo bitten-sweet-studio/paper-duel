@@ -47,6 +47,7 @@ func handle_collision(collision: KinematicCollision2D):
 func bounce(collision: KinematicCollision2D):
 	direction = direction.bounce(collision.normal)
 	direction = weapon.add_spread(direction)
+	global_rotation = direction.angle()
 	bounces_left -= 1
 
 

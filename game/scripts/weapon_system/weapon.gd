@@ -111,6 +111,7 @@ func shoot_bullet():
 	direction = add_spread(direction)
 
 	bullet.direction = direction
+	bullet.global_rotation = global_rotation
 
 func add_spread(direction: Vector2) -> Vector2:
 	var spread_radians_range: Vector2 = Vector2(
